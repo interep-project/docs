@@ -12,6 +12,7 @@ module.exports = {
     onBrokenMarkdownLinks: "warn",
     organizationName: "InterRep",
     projectName: "docs",
+    trailingSlash: false,
 
     presets: [
         [
