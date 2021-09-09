@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Technical Overview
+# Technical overview
 
 InterRep is made up of 2 main components: a centralized verification service (with a database, server, API, and front-end accessible at https://interrep.link) and a set of smart contracts for the Twitter badge (this is currently the only badge one can get from InterRep).
 

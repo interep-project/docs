@@ -50,8 +50,16 @@ module.exports = {
                         title: "Docs",
                         items: [
                             {
-                                label: "Tutorial",
-                                to: "/docs/intro"
+                                label: "Introduction",
+                                to: "/"
+                            },
+                            {
+                                label: "Getting started",
+                                to: "/getting-started"
+                            },
+                            {
+                                label: "References",
+                                to: "/references"
                             }
                         ]
                     },
