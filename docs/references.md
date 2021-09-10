@@ -10,5 +10,4 @@ sidebar_position: 5
 -   Production application (Arbitrum One): https://interrep.link
 -   Production application (Ropsten): https://ropsten.interrep.link
 -   Staging application (Kovan): https://kovan.interrep.link
--   Staging application (Kovan): https://kovan.interrep.link
 -   Jay Graber's article on Medium: [Introducing InterRep](https://jaygraber.medium.com/introducing-interrep-255d3f56682)
