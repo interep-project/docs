@@ -1,13 +1,23 @@
 ---
-sidebar_position: 5
+sidebar_position: 7
 ---
 
 # References
 
+## Repositories
+
 -   Github organization: https://github.com/InterRep
--   Contracts repository: https://github.com/InterRep/contracts
--   Reputation service repository: https://github.com/InterRep/reputation-service
--   Production application (Arbitrum One): https://interrep.link
--   Production application (Ropsten): https://ropsten.interrep.link
--   Staging application (Kovan): https://kovan.interrep.link
+-   Contracts: https://github.com/InterRep/contracts
+-   Reputation service: https://github.com/InterRep/reputation-service
+-   InterRep.JS: https://github.com/InterRep/interrep.js
+-   Documentation: https://github.com/InterRep/docs
+
+## Application
+
+-   Production (Arbitrum One): https://interrep.link
+-   Production (Ropsten): https://ropsten.interrep.link
+-   Staging (Kovan): https://kovan.interrep.link
+
+## Articles
+
 -   Jay Graber's article on Medium: [Introducing InterRep](https://jaygraber.medium.com/introducing-interrep-255d3f56682)
