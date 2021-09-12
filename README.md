@@ -18,33 +18,32 @@
     <img alt="Repository top language" src="https://img.shields.io/github/languages/top/InterRep/docs?style=flat-square">
 </p>
 
+<div align="center">
+    <h4>
+        <a href="https://docs.interrep.link/contributing">
+            👥 Contributing
+        </a>
+        <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        <a href="https://docs.interrep.link/code_of_conduct">
+            🤝 Code of conduct
+        </a>
+    </h4>
+</div>
+
 Our [documentation website](https://docs.interrep.link) was generated with [Docusaurus](https://docusaurus.io/). Please, check https://docusaurus.io/docs for more information.
 
----
+___
 
-## Table of Contents
-
--   🛠 [Install](#install)
--   🕹 [Usage](#usage)
--   🔬 Development
-    -   Rules
-        -   [Commits](https://github.com/cedoor/cedoor/tree/main/git#commits-rules)
-        -   [Branches](https://github.com/cedoor/cedoor/tree/main/git#branch-rules)
--   🧾 [MIT License](https://github.com/interrep/semethid/blob/master/LICENSE)
--   ☎️ [Contacts](#contacts)
-    -   [Developers](#developers)
-
-## Install
+## 🛠 Install
 
 Clone this repository and install the dependencies:
 
 ```bash
 $ git clone https://github.com/InterRep/docs.git interrep-docs
-$ cd interrep-docs
-$ yarn
+$ cd interrep-docs && yarn
 ```
 
-## Usage
+## 📜 Usage
 
 ### Local Development
 
@@ -71,17 +70,3 @@ $ GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
 
 **Notice**: You can find all the markdown documentation files in the `docs` folder.
-
-## Contacts
-
-### Developers
-
-#### cedoor
-
-- E-mail : me@cedoor.dev
-- Github : [@cedoor](https://github.com/cedoor)
-- Website : https://cedoor.dev
-
-#### glamperd
-
-- Github : [@glamperd](https://github.com/glamperd)
