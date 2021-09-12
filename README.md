@@ -24,7 +24,7 @@
             👥 Contributing
         </a>
         <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <a href="https://docs.interrep.link/code_of_conduct">
+        <a href="https://docs.interrep.link/code-of-conduct">
             🤝 Code of conduct
         </a>
     </h4>
