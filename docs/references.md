@@ -18,6 +18,10 @@ sidebar_position: 7
 -   Production (Ropsten): https://ropsten.interrep.link
 -   Staging (Kovan): https://kovan.interrep.link
 
+## Chat
+
+-   Telegram: https://t.me/interrep
+
 ## Articles
 
 -   Jay Graber's article on Medium: [Introducing InterRep](https://jaygraber.medium.com/introducing-interrep-255d3f56682)
