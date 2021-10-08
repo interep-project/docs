@@ -4,9 +4,9 @@ sidebar_position: 7
 
 # References
 
-## Repositories
+## Github repositories
 
--   Github organization: https://github.com/InterRep
+-   Organization: https://github.com/InterRep
 -   Contracts: https://github.com/InterRep/contracts
 -   Reputation service: https://github.com/InterRep/reputation-service
 -   InterRep.JS: https://github.com/InterRep/interrep.js

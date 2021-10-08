@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# Code of Conduct
+# Code of conduct
 
 ## Our Pledge
 
