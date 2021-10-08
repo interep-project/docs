@@ -1,15 +1,74 @@
 # Twitter
 
-Any of the following will result in a `NOT_SUFFICIENT` reputation:
+## Parameters
 
-- Default profile picture
-- 0 tweets
-- 2 followers or less
+-   **Followers**: number of the user's followers;
+-   **Botometer overall score**: score obtained with [Botometer](https://botometer.osome.iu.edu/);
+-   **Verified profile**: true if the user has a verifier profile, false otherwise.
 
-Any of the following will result in a `CONFIRMED` reputation:
+## Levels
 
-- Verified by Twitter
-- More than 7000 followers
-- Is among our list of 18,000+ seed accounts
+### Gold
 
-Otherwise, the reputation is `UNCLEAR` and data from [botometer](https://botometer.osome.iu.edu/) is fetched.
+```typescript
+[
+    {
+        parameter: "verifiedProfile",
+        value: true
+    },
+    {
+        parameter: "followers",
+        value: {
+            min: 7000
+        }
+    },
+    {
+        parameter: "botometerOverallScore",
+        value: {
+            max: 1
+        }
+    }
+]
+```
+
+### Silver
+
+```typescript
+[
+    {
+        parameter: "followers",
+        value: {
+            min: 2000
+        }
+    },
+    {
+        parameter: "botometerOverallScore",
+        value: {
+            max: 1.5
+        }
+    }
+]
+```
+
+### Bronze
+
+```typescript
+[
+    {
+        parameter: "followers",
+        value: {
+            min: 500
+        }
+    },
+    {
+        parameter: "botometerOverallScore",
+        value: {
+            max: 2
+        }
+    }
+]
+```
+
+---
+
+#### Configuration file: [src/criteria/twitter.ts](https://github.com/InterRep/interrep.js/blob/main/packages/reputation-criteria/src/criteria/twitter.ts)
