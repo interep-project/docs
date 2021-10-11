@@ -51,12 +51,16 @@ module.exports = {
                         title: "Docs",
                         items: [
                             {
-                                label: "Introduction",
+                                label: "Welcome",
                                 to: "/"
                             },
                             {
-                                label: "Getting started",
-                                to: "/getting-started"
+                                label: "Technical overview",
+                                to: "/technical-overview/intro"
+                            },
+                            {
+                                label: "API",
+                                to: "/api"
                             },
                             {
                                 label: "References",
@@ -82,7 +86,7 @@ module.exports = {
                         items: [
                             {
                                 label: "App",
-                                href: "https://interrep.link"
+                                href: "https://kovan.interrep.link"
                             },
                             {
                                 label: "GitHub",
