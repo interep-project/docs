@@ -39,6 +39,6 @@ InterRep allows users **link** a reputable Web2 account (e.g. Twitter, Github, R
 
 ## Getting started
 
-InterRep consists of several components. If you want to learn more about the way it works, go to our [technical overview](/technical-overview/intro). If you have a service that needs a system to prevent sybil attacks or to verify the authenticity of users, read our [tutorial](/tutorials/api-integration) on how to integrate InterRep.
+InterRep consists of several components. If you want to learn more about the way it works, go to our [technical overview](/technical-overview/intro). If you have a service that needs a system to prevent sybil attacks or to verify the authenticity of users, read our [tutorial](/tutorials/semaphore-groups) on how to integrate our Semaphore groups.
 
 Our Web application is live on [kovan.interrep.link](https://kovan.interrep.link), but be aware that it is in a testing phase.
