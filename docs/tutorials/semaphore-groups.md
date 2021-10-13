@@ -80,9 +80,9 @@ console.log(identityCommitment)
 
 ## 4. Add the identity commitment to a group
 
-To add an identity commitment to a group you can use our [`/api/groups/:provider/:name/:identityCommitment`](/api#apigroupsprovidernameidentitycommitment) API.
+To add an identity commitment to a group you can use our [`/api/groups/:provider/:name/:identityCommitment`](/api#apigroupsprovidernameidentitycommitment) API. The POST methods of our APIs are restricted to a list of domains defined in a whitelist. If you want to add your own domain please contact us or open a pull request. You can find the configuration file [here](https://github.com/InterRep/reputation-service/blob/main/src/config.ts).
 
-```typescript title="Groups with Web2 providers (e.g Github)."
+```typescript title="Adding identity commitments to groups with Web2 providers (e.g Github)."
 const headers = new Headers({ Authorization: `token ${token}` })
 const url = `https://kovan.interrep.link/api/groups/github/${reputation}/${identityCommitment}`
 const userResponse = await fetch(url, { method: "POST", headers })
@@ -92,7 +92,7 @@ const { data } = await response.json()
 console.log(data) // 13331146992410411304059858900317123658895005918277453009197229807340014528595
 ```
 
-```typescript title="Groups with Web3 providers (e.g POAP)."
+```typescript title="Adding identity commitments to groups with Web3 providers (e.g POAP)."
 import detectEthereumProvider from "@metamask/detect-provider"
 import { ethers } from "ethers"
 
