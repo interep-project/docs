@@ -16,6 +16,8 @@
 }
 
 html[data-theme="dark"] {
+    --ifm-background-color: #3b3944;
+    --ifm-navbar-background-color: #3b3944;
     --ifm-color-primary: #88b5c3;
     --ifm-color-primary-dark: #72a7b8;
     --ifm-color-primary-darker: #67a0b2;
@@ -23,6 +25,10 @@ html[data-theme="dark"] {
     --ifm-color-primary-light: #9ec3ce;
     --ifm-color-primary-lighter: #a9cad4;
     --ifm-color-primary-lightest: #cadee4;
+}
+
+.footer--dark {
+    --ifm-footer-background-color: #23222a;
 }
 
 .docusaurus-highlight-code-line {
