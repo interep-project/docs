@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # Subgraph
 
-Groups and group membership details can be queried using GraphQL queries using a subgraph, available at https://thegraph.com/hosted-service/subgraph/glamperd/interrep-groups-kovan. The list of Semaphore identity commitments in each group is available.  
+Groups and group membership details can be queried using GraphQL queries using a subgraph, available at https://thegraph.com/hosted-service/subgraph/interrep/interrep-groups-kovan. The list of Semaphore identity commitments in each group is available.  
 
 
 ## Schema
