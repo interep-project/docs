@@ -6,7 +6,7 @@ title: Semaphore groups
 
 In this section, we will learn how to integrate our Semaphore groups in your application.
 
-InterRep allows users to join groups anonymously, so that these groups can then be used by DApps and external services to allow, for example, only certain categories of users to authenticate or to unlock certain features based on the user's group. Each group has a certain provider and a name (which coincides with the reputation when there is a reputation provider). A user with a GOLD reputation on Twitter can, for example, join the relevant group and access another application by proving that they are part of the group and therefore have a GOLD reputation.
+InterRep allows users to join groups anonymously, so that these groups can then be used by DApps and external services to allow, for example, only certain categories of users to authenticate or to unlock certain features based on the user's group. Each group has a certain provider and a name (which coincides with the reputation when there is a OAuth provider). A user with a GOLD reputation on Twitter can, for example, join the relevant group and access another application by proving that they are part of the group and therefore have a GOLD reputation.
 
 The groups are basically composed of a set of Semaphore identity commitments organized in Merkle trees. Thanks to Semaphore it is possible to create a zero-knowledge proof to prove that a user is a member of the group (or a leaf of the tree) without revealing their identity.
 
@@ -34,7 +34,7 @@ console.log(providers) // ["twitter", "github", "reddit", "poap"]
 ```
 
 :::info
-You only need to create a token if the provider is a reputation provider (e.g. Twitter, Reddit, Github). For the Web3 providers (e.g POAP) you can skip the steps 1 and 2. As we will see later, it is sufficient to sign the identity commitment with Metamask and send the signature and the address of the Ethereum account used to sign.
+You only need to create a token if the provider is a OAuth provider (e.g. Twitter, Reddit, Github). For the Web3 providers (e.g POAP) you can skip the steps 1 and 2. As we will see later, it is sufficient to sign the identity commitment with Metamask and send the signature and the address of the Ethereum account used to sign.
 :::
 
 ## 2. Calculate the user's reputation
@@ -75,7 +75,7 @@ const identityCommitment = await semethid(sign, "github")
 
 ## 4. Add the identity commitment to a group
 
-To add an identity commitment to a group you need a OAuth token if there is a reputation provider or the signature of the identity commitment and the Ethereum account address if there is a Web3 provider.
+To add an identity commitment to a group you need a OAuth token if there is a OAuth provider or the signature of the identity commitment and the Ethereum account address if there is a Web3 provider.
 
 The POST methods of our APIs are restricted to a list of domains defined in a whitelist. If you want to add your own domain please contact us or open a pull request. You can find the configuration file [here](https://github.com/InterRep/reputation-service/blob/main/src/config.ts).
 
