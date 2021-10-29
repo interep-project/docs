@@ -64,7 +64,7 @@ curl https://kovan.interrep.link/api/groups
 
 #### `/api/groups/:provider/:name/:identityCommitment`
 
-**POST** - Add an identity commitment to a group (or Merkle tree) and return the new root hash.
+**POST** - Add an identity commitment to a group (or Merkle tree) and return true.
 
 ```bash title="Shell"
 curl -X POST -H "Authorization: token OAUTH-TOKEN" \

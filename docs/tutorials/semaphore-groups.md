@@ -30,7 +30,7 @@ import { API } from "@interrep/api"
 const api = new API()
 const providers = await api.getProviders()
 
-console.log(providers) // ["twitter", "github", "reddit", "poap"]
+console.log(providers) // ["twitter", "github", "reddit", "poap", "telegram"]
 ```
 
 :::info
@@ -83,7 +83,7 @@ To add an identity commitment to a group you need a OAuth token if there is a OA
 The POST methods of our APIs are restricted to a list of domains defined in a whitelist. If you want to add your own domain please contact us or open a pull request. You can find the configuration file [here](https://github.com/InterRep/reputation-service/blob/main/src/config.ts).
 
 ```typescript title="Adding identity commitments to groups with reputation providers (e.g Github)."
-const rootHash = await api.addIdentityCommitment({
+await api.addIdentityCommitment({
     provider: "github",
     name: reputation,
     identityCommitment,
@@ -102,7 +102,7 @@ const signer = provider.getSigner()
 const userSignature = await signer.signMessage(identityCommitment)
 const userAddress = await signer.getAddress()
 
-const rootHash = await api.addIdentityCommitment({
+await api.addIdentityCommitment({
     provider: "poap",
     name: "DEVCON_4",
     identityCommitment,
