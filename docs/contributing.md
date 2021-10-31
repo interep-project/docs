@@ -8,7 +8,7 @@ sidebar_position: 8
 
 Feel welcome and read the following sections in order to know how to ask questions and how to work on something.
 
-All members of our community are expected to follow our [Code of Conduct](https://docs.interrep.link/code_of_conduct). Please make sure you are welcoming and friendly in all of our spaces.
+All members of our community are expected to follow our [Code of Conduct](https://docs.interrep.link/code-of-conduct). Please make sure you are welcoming and friendly in all of our spaces.
 
 We're really glad you're reading this, because we need volunteer developers to help this project come to fruition. 👏
 
