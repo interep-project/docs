@@ -58,7 +58,7 @@ console.log(reputation) // GOLD
 
 ## 3. Create the identity commitment
 
-Creating a Semaphore identity commitment is quite simple. InterRep provides an [`@interrep/semethid`](https://github.com/InterRep/interrep.js/tree/main/packages/semethid) package to create a Semaphore identity. You will also need [Metamask](https://metamask.io/) and [Ethers.js](https://github.com/ethers-io/ethers.js/) (or [Web3.js](https://github.com/ChainSafe/web3.js)) to sign the InterRep message. If you want to see how `@interrep/semethid` works you can try our [demo](https://js.interrep.link/semethid/).
+Creating a Semaphore identity commitment is quite simple. InterRep provides an [`@interrep/semethid`](https://github.com/InterRep/interrep.js/tree/main/packages/semethid) package to create a Semaphore identity ([`@libsem/identity`](https://github.com/appliedzkp/libsemaphore/tree/master/packages/identity)). You will also need [Metamask](https://metamask.io/) and [Ethers.js](https://github.com/ethers-io/ethers.js/) (or [Web3.js](https://github.com/ChainSafe/web3.js)) to sign the InterRep message. If you want to see how `@interrep/semethid` works you can try our [demo](https://js.interrep.link/semethid/).
 
 ```typescript
 import semethid from "@interrep/semethid"
@@ -73,7 +73,8 @@ function sign(message: string): Promise<string> {
     return signer.signMessage(message)
 }
 
-const identityCommitment = await semethid(sign, "github")
+const identity = await semethid(sign, "github")
+const identityCommitment = identity.genIdentityCommitment().toString()
 ```
 
 ## 4. Add the identity commitment to a group
