@@ -78,6 +78,10 @@ module.exports = {
                             {
                                 label: "Twitter",
                                 href: "https://twitter.com/PrivacyScaling"
+                            },
+                            {
+                                label: "Telegram",
+                                href: "https://t.me/interrep"
                             }
                         ]
                     },
