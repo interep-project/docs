@@ -1,10 +1,10 @@
 ---
-title: Semaphore groups
+title: InterRep groups
 ---
 
-# Using Semaphore groups
+# Using InterRep groups
 
-In this section, we will learn how to integrate our Semaphore groups in your application.
+In this section, we will learn how to integrate our InterRep groups in your application.
 
 InterRep allows users to join groups anonymously, so that these groups can then be used by DApps and external services to allow, for example, only certain categories of users to authenticate or to unlock certain features based on the user's group. Each group has a certain provider and a name (which coincides with the reputation when there is a OAuth provider). A user with a GOLD reputation on Twitter can, for example, join the relevant group and access another application by proving that they are part of the group and therefore have a GOLD reputation.
 
@@ -22,7 +22,7 @@ If you want to integrate the whole onboarding flow into your UI, follow all the 
 
 ## 1. Generate a OAuth token
 
-If you want to allow a user to join a group directly from your app without going through the InterRep app, you will need to create a OAuth authentication system to generate a valid access token in order to calculate the users' reputation and to add their identity commitment to a Semaphore group. You can get the list of our supported providers with our [`@interrep/api`](https://github.com/InterRep/interrep.js/tree/main/packages/api) package.
+If you want to allow a user to join a group directly from your app without going through the InterRep app, you will need to create a OAuth authentication system to generate a valid access token in order to calculate the users' reputation and to add their identity commitment to a InterRep group. You can get the list of our supported providers with our [`@interrep/api`](https://github.com/InterRep/interrep.js/tree/main/packages/api) package.
 
 ```typescript
 import { API } from "@interrep/api"
@@ -58,10 +58,10 @@ console.log(reputation) // GOLD
 
 ## 3. Create the identity commitment
 
-Creating a Semaphore identity commitment is quite simple. InterRep provides an [`@interrep/semethid`](https://github.com/InterRep/interrep.js/tree/main/packages/semethid) package to create a Semaphore identity ([`@libsem/identity`](https://github.com/appliedzkp/libsemaphore/tree/master/packages/identity)). You will also need [Metamask](https://metamask.io/) and [Ethers.js](https://github.com/ethers-io/ethers.js/) (or [Web3.js](https://github.com/ChainSafe/web3.js)) to sign the InterRep message. If you want to see how `@interrep/semethid` works you can try our [demo](https://js.interrep.link/semethid/).
+Creating an Semaphore identity commitment is quite simple. InterRep provides an [`@interrep/identity`](https://github.com/InterRep/interrep.js/tree/main/packages/identity) package to create a Semaphore identity ([`@libsem/identity`](https://github.com/appliedzkp/libsemaphore/tree/master/packages/identity)). You will also need [Metamask](https://metamask.io/) and [Ethers.js](https://github.com/ethers-io/ethers.js/) (or [Web3.js](https://github.com/ChainSafe/web3.js)) to sign the InterRep message. If you want to see how `@interrep/identity` works you can try our [demo](https://js.interrep.link/identity/).
 
 ```typescript
-import semethid from "@interrep/semethid"
+import createIdentity from "@interrep/identity"
 import detectEthereumProvider from "@metamask/detect-provider"
 import { ethers } from "ethers"
 
@@ -73,7 +73,7 @@ function sign(message: string): Promise<string> {
     return signer.signMessage(message)
 }
 
-const identity = await semethid(sign, "github")
+const identity = await createIdentity(sign, "github")
 const identityCommitment = identity.genIdentityCommitment().toString()
 ```
 
