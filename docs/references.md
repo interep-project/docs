@@ -11,6 +11,7 @@ sidebar_position: 9
 -   Reputation service: https://github.com/InterRep/reputation-service
 -   InterRep.JS: https://github.com/InterRep/interrep.js
 -   Documentation: https://github.com/InterRep/docs
+-   Subgraph (The Graph): https://github.com/InterRep/subgraph
 
 ## Application
 
