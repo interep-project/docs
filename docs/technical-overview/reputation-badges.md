@@ -1,10 +1,10 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Reputation badges
 
-By interacting with our web app, users are able to:
+By interacting with our web app, users can also:
 
 -   Link and unlink their Ethereum account with their Web2 account (e.g. Twitter, Github or Reddit);
 -   Mint and burn a token representing this association.
