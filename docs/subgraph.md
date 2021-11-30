@@ -33,7 +33,7 @@ If you don't know GraphQL, you can try running some queries using the Graph Expl
 
 ## Example Queries
 
-### Query all members for the first 10 groups
+### All members for the first 10 groups
 
 ```graphql
 {
@@ -49,7 +49,7 @@ If you don't know GraphQL, you can try running some queries using the Graph Expl
 }
 ```
 
-### Query a sample of members
+### Sample of members
 
 ```graphql
 {
@@ -60,6 +60,25 @@ If you don't know GraphQL, you can try running some queries using the Graph Expl
         group {
             provider
             name
+        }
+    }
+}
+```
+
+### Groups by identity commitment
+
+It can be useful when you want all groups of a certain provider to which a user belongs.
+
+```graphql
+{
+    members(
+        where: { identityCommitment: "2066509069781532083082870363092240900543210735798842041673598797369005529920" }
+    ) {
+        group {
+            provider
+            name
+            depth
+            size
         }
     }
 }
