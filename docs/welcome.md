@@ -27,7 +27,7 @@ Even if we urgently need a Web3, most of people's data still resides within cent
 
 ### Reputation badges
 
-InterRep allows users to **link** a reputable Web2 account (e.g. Twitter, Github, Reddit) to an Ethereum account without retaining a readable record of this association but instead encrypting it with the user's public key. Users can link their accounts only if they have a certain reputation, which is calculated using pre-defined **[criteria](/technical-overview/reputation-criteria/intro)** based on parameters provided by social platforms. The link between the accounts is then represented by a **badge**, i.e. a non-fungible token (NFT) minted by InterRep which certifies the user's reputation and which can be used, for example, as collateral in other applications. The user can then revoke a badge by burning the NFT and unlinking the accounts.
+InterRep allows users to **link** a reputable Web2 account (e.g. Twitter, Github, Reddit) to an Ethereum account without retaining a readable record of this association but instead encrypting it with the user's public key. Users can link their accounts only if they have a certain reputation, which is calculated using pre-defined **[criteria](/technical-overview/reputation/intro)** based on parameters provided by social platforms. The link between the accounts is then represented by a **badge**, i.e. a non-fungible token (NFT) minted by InterRep which certifies the user's reputation and which can be used, for example, as collateral in other applications. The user can then revoke a badge by burning the NFT and unlinking the accounts.
 
 ### Groups
 

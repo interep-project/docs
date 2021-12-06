@@ -9,7 +9,7 @@ By interacting with our web app, users can also:
 -   Link and unlink their Ethereum account with their Web2 account (e.g. Twitter, Github or Reddit);
 -   Mint and burn a token representing this association.
 
-InterRep uses OAuth to allow users to sign in with their Web2 account. The reputation service then fetches public data for that account and determines its reputation based on the criteria described [here](/technical-overview/reputation-criteria/intro).
+InterRep uses OAuth to allow users to sign in with their Web2 account. The reputation service then fetches public data for that account and determines its reputation based on the criteria described [here](/technical-overview/reputation/intro).
 
 :::note
 "badge", "token" and "NFT" are used interchangeably here.
