@@ -30,7 +30,7 @@ curl https://kovan.interrep.link/api/providers/github/53896249589165548557454026
 { "data": true }
 ```
 
-### Semaphore groups
+### Groups
 
 #### `/api/groups`
 
