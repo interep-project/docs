@@ -64,7 +64,7 @@ curl https://kovan.interrep.link/api/groups
 
 #### `/api/groups/:provider/:name/:identityCommitment`
 
-**POST** - Add an identity commitment to a group (or Merkle tree) and return true.
+**POST** - Add an identity commitment to a group and return true (for OAuth groups only).
 
 ```bash title="Shell"
 curl -X POST -H "Authorization: token OAUTH-TOKEN" \
@@ -72,7 +72,18 @@ curl -X POST -H "Authorization: token OAUTH-TOKEN" \
 ```
 
 ```json title="Response"
-{ "data": "14292921841668459321530999124084402502172700548060824366716414263194752155209" }
+{ "data": true }
+```
+
+**DELETE** - Delete an identity commitment from a group and return true (for OAuth groups only).
+
+```bash title="Shell"
+curl -X DELETE -H "Authorization: token OAUTH-TOKEN" \
+    https://kovan.interrep.link/api/groups/github/GOLD/5389624958916554855745402699919973897274778066321592214684792070525465486554
+```
+
+```json title="Response"
+{ "data": true }
 ```
 
 #### `/api/groups/:provider/:name/:identityCommitment/path`
