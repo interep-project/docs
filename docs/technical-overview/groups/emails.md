@@ -39,6 +39,4 @@ Currently we support the flowing email groups:
 The Outlook and Hotmail groups are for testing purposes only allowing people to experience the flow. As they are easy to create many copies of they hold little use in actual applications and will be discontinued in the near future
 :::
 
-
-<b>Constraints</b> <br></br>
-As interrep currently pays gas on user transactions this puts the constraint on which types of groups we can support. We cannot support groups that are easy for a single user to create many accounts for, e.g gmail. This also means that we are currently adding email domains manually on our end of things for users to validate against. If you would like a particular email group created please let us know and we will consider adding it. 
+At the moment only groups added by the interrep team can be used to verify email addresses against. If you have a domain you would like us to consider adding please get in touch.
