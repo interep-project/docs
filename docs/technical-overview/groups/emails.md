@@ -3,7 +3,7 @@
 ## General description
 Users can join Semaphore groups that link to certain email domains or certain top level domains. An email address can qualify for zero, one or, at most, two groups, depending on the domains that are available through interrep. 
 
-## Specific description (flow)
+## Flow
 - The user enters their email address on the frontend which is then checked to see if it qualifies the user for any of our groups.
 - If the users email address qualifies they are sent an email containing a magic link.
 - The user clicks on the magic link and is redirected to an api/groups/email endpoint.
@@ -12,11 +12,12 @@ Users can join Semaphore groups that link to certain email domains or certain to
 - The same magic link will allow the user to leave any groups they have previously joined.
 - If the user has qualified for more than one group then they can join/leave the other group from the same page the magic link sent them to.
 
+![test](img/email_flow.png)	
 ## Use cases
 ### 1. Whistle blowing
 You might want to allow individuals to claim that the company they work for has done something illegal but without having to reveal who they are (at least initially). While our system would only be part of a potential process for doing this it would allow an employee, through attesting that they belong to a specific Semaphore group, to be able to verify that they worked at a specific company and in such a way that the company could not tell which employee was doing this.
 
-There are some caveats to this. 
+There are some caveats to this: 
 - To be most effective we would want the identity commitments to need to be recreated periodically to avoid someone being able to pretend that they are still affiliated with a company after they have left.
 - The obfuscation the Sempahore group provides, while cryptographically secure, has other weaknesses. For example, if only two people at a company have joined the group then while the company might not know which individual one was the whistle blower they could know it was one of the two.
 - To be most effective this would require the employee to get their magic link from their work email, necessarily, but then use it on a computer they had a personal wallet on that would not be monitored by their company.
@@ -29,8 +30,15 @@ While we do not currently support any groups like this, it would be feasible for
 
 ## Available groups
 
-<b>Constraints</b> <br></br>
-As interrep currently pays gas on user transactions this puts two constraints on which types of groups we can support.
-- We cannot support groups that are easy for a single user to create many accounts for.  
+Currently we support the flowing email groups:
+- @outlook addresses
+- @hotmail addresses
+- .edu addresses
 
-WIP
+:::info
+The Outlook and Hotmail groups are for testing purposes only allowing people to experience the flow. As they are easy to create many copies of they hold little use in actual applications and will be discontinued in the near future
+:::
+
+
+<b>Constraints</b> <br></br>
+As interrep currently pays gas on user transactions this puts the constraint on which types of groups we can support. We cannot support groups that are easy for a single user to create many accounts for, e.g gmail. This also means that we are currently adding email domains manually on our end of things for users to validate against. If you would like a particular email group created please let us know and we will consider adding it. 
