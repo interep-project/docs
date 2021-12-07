@@ -16,6 +16,7 @@ In cryptography and computer science, a hash tree or [Merkle tree](https://en.wi
 :::
 
 ## Joining a group
+![test](img/general_flow.png)	
 
 In the first phase InterRep allows users to join groups with the web application or via [API](/api#apigroupsprovidernameidentitycommitment), that can be used by external services. Although there are different types of groups, the way users are added is the same. Each user uses their Ethereum account to generate an identity commitment that uniquely represents the user and the type of group they wish to join.
 
