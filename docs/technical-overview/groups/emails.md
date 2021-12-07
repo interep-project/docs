@@ -35,8 +35,10 @@ Currently we support the flowing email groups:
 - @hotmail addresses
 - .edu addresses
 
-:::info
+:::caution
 The Outlook and Hotmail groups are for testing purposes only allowing people to experience the flow. As they are easy to create many copies of they hold little use in actual applications and will be discontinued in the near future
 :::
 
+:::info
 At the moment only groups added by the interrep team can be used to verify email addresses against. If you have a domain you would like us to consider adding please get in touch.
+:::
