@@ -19,7 +19,7 @@ In cryptography and computer science, a hash tree or [Merkle tree](https://en.wi
 
 In the first phase InterRep allows users to join groups with the web application or via [API](/api#apigroupsprovidernameidentitycommitment), that can be used by external services. Although there are different types of groups, the way users are added is the same. Each user uses their Ethereum account to generate an identity commitment that uniquely represents the user and the type of group they wish to join.
 
-Group types are defined by identity providers, i.e. the services from which the information necessary to certify a certain reputation or certain properties is obtained. The Ethereum account, on the other hand, is used to sign a message with the identity provider and to generate a Semphore identity.
+Group types are defined by identity providers, i.e. the services from which the information necessary to certify a certain reputation or certain properties is obtained. Whereas the users Ethereum account is used to sign a message with the identity provider and to generate a Semaphore identity.
 
 InterRep uses the [@interrep/identity](https://github.com/InterRep/interrep.js/tree/main/packages/identity) package to generate identities, while the [reputation-service](https://github.com/InterRep/reputation-service) takes care of adding the identity commitments in the Merkle tree associated with the group.
 
