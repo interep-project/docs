@@ -42,7 +42,7 @@ While we do not currently support any groups like this, it would be feasible for
 
 ## Available groups
 
-Currently we support the flowing email groups: **`outlook`**, **`hotmail`**, **`.edu`**.
+Currently we support the following email groups: **`outlook`**, **`hotmail`**, **`.edu`**.
 
 :::caution
 The Outlook and Hotmail groups are for testing purposes only allowing people to experience the flow. As they are easy to create many copies of they hold little use in actual applications and will be discontinued in the near future.
@@ -51,4 +51,3 @@ The Outlook and Hotmail groups are for testing purposes only allowing people to 
 :::tip
 At the moment only groups added by the InterRep team can be used to verify email addresses against. If you have a domain you would like us to consider adding please get in touch.
 :::
-
