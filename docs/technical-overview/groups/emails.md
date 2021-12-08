@@ -14,7 +14,7 @@ Users can join Semaphore groups that link to certain email domains or certain to
 4.  the user selects which group they would like to join (only groups the are eligible to join are shown) and generates an identity commitment for the email provider;
 5.  the user joins the InterRep group or leaves it if they have previously joined.
 
-![test](img/email_flow.png)
+![Email flow](/img/email_flow.png)
 
 :::info
 If the user has qualified for more than one group then they can join/leave the other group from the same page the magic link sent them to.

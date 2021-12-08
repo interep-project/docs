@@ -16,7 +16,6 @@ In cryptography and computer science, a hash tree or [Merkle tree](https://en.wi
 :::
 
 ## Joining a group
-![test](img/general_flow.png)	
 
 In the first phase InterRep allows users to join groups with the web application or via [API](/api#apigroupsprovidernameidentitycommitment), that can be used by external services. Although there are different types of groups, the way users are added is the same. Each user uses their Ethereum account to generate an identity commitment that uniquely represents the user and the type of group they wish to join.
 
@@ -24,7 +23,7 @@ Group types are defined by identity providers, i.e. the services from which the 
 
 InterRep uses the [@interrep/identity](https://github.com/InterRep/interrep.js/tree/main/packages/identity) package to generate identities, while the [reputation-service](https://github.com/InterRep/reputation-service) takes care of adding the identity commitments in the Merkle tree associated with the group.
 
-In addition to joining a group, users can later decide to leave it. The Merkle tree leaf corresponding to identity commitment will be set to 0.
+In addition to joining a group, users can later decide to leave it. In this case the Merkle tree leaf corresponding to identity commitment will be set to 0.
 
 :::info
 InterRep does not save any association between the Ethereum account address and the provider.
@@ -39,3 +38,7 @@ Merkle proofs can therefore be used to create zero-knowledge proofs with Semapho
 :::info
 A Merkle proof, or proof of membership, is the tree data needed to verify that a leaf belongs to the tree. Merkle trees allow you to do this type of verification in a very efficient and secure manner. Demonstrating that a leaf node is a part of a given binary Merkle tree, for example, requires computing a number of hashes proportional to the logarithm of the number of leaf nodes in the tree.
 :::
+
+## Providers
+
+![General flow](/img/general_flow.png)
