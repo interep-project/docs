@@ -43,21 +43,21 @@ curl https://kovan.interrep.link/api/groups
 ```json title="Response"
 {
     "data": [
-        { "name": "GOLD", "provider": "twitter", "size": 1230 },
-        { "name": "SILVER", "provider": "twitter", "size": 1204 },
-        { "name": "BRONZE", "provider": "twitter", "size": 123 },
-        { "name": "NOT_SUFFICIENT", "provider": "twitter", "size": 9023 },
-        { "name": "GOLD", "provider": "github", "size": 1230 },
-        { "name": "SILVER", "provider": "github", "size": 2003 },
-        { "name": "BRONZE", "provider": "github", "size": 100 },
-        { "name": "NOT_SUFFICIENT", "provider": "github", "size": 8340 },
-        { "name": "GOLD", "provider": "reddit", "size": 1400 },
-        { "name": "SILVER", "provider": "reddit", "size": 3943 },
-        { "name": "BRONZE", "provider": "reddit", "size": 3243 },
-        { "name": "NOT_SUFFICIENT", "provider": "reddit", "size": 7342 },
-        { "name": "DEVCON_3", "provider": "poap", "size": 23 },
-        { "name": "DEVCON_4", "provider": "poap", "size": 34 },
-        { "name": "DEVCON_5", "provider": "poap", "size": 49 }
+        { "name": "gold", "provider": "twitter", "size": 1230 },
+        { "name": "silver", "provider": "twitter", "size": 1204 },
+        { "name": "bronze", "provider": "twitter", "size": 123 },
+        { "name": "not_sufficient", "provider": "twitter", "size": 9023 },
+        { "name": "gold", "provider": "github", "size": 1230 },
+        { "name": "silver", "provider": "github", "size": 2003 },
+        { "name": "bronze", "provider": "github", "size": 100 },
+        { "name": "not_sufficient", "provider": "github", "size": 8340 },
+        { "name": "gold", "provider": "reddit", "size": 1400 },
+        { "name": "silver", "provider": "reddit", "size": 3943 },
+        { "name": "bronze", "provider": "reddit", "size": 3243 },
+        { "name": "not_sufficient", "provider": "reddit", "size": 7342 },
+        { "name": "devcon3", "provider": "poap", "size": 23 },
+        { "name": "devcon4", "provider": "poap", "size": 34 },
+        { "name": "devcon5", "provider": "poap", "size": 49 }
     ]
 }
 ```
@@ -68,7 +68,7 @@ curl https://kovan.interrep.link/api/groups
 
 ```bash title="Shell"
 curl -X POST -H "Authorization: token OAUTH-TOKEN" \
-    https://kovan.interrep.link/api/groups/github/GOLD/5389624958916554855745402699919973897274778066321592214684792070525465486554
+https://kovan.interrep.link/api/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554
 ```
 
 ```json title="Response"
@@ -79,7 +79,7 @@ curl -X POST -H "Authorization: token OAUTH-TOKEN" \
 
 ```bash title="Shell"
 curl -X DELETE -H "Authorization: token OAUTH-TOKEN" \
-    https://kovan.interrep.link/api/groups/github/GOLD/5389624958916554855745402699919973897274778066321592214684792070525465486554
+https://kovan.interrep.link/api/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554
 ```
 
 ```json title="Response"
@@ -91,7 +91,7 @@ curl -X DELETE -H "Authorization: token OAUTH-TOKEN" \
 **GET** - Get a Merkle tree path.
 
 ```bash title="Shell"
-curl https://kovan.interrep.link/api/groups/github/GOLD/5389624958916554855745402699919973897274778066321592214684792070525465486554/path
+curl https://kovan.interrep.link/api/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554/path
 ```
 
 ```json title="Response"
@@ -126,7 +126,7 @@ curl https://kovan.interrep.link/api/groups/github/GOLD/538962495891655485574540
 **GET** - Check whether an identity commitment belongs to a group.
 
 ```bash title="Shell"
-curl https://kovan.interrep.link/api/groups/github/GOLD/5389624958916554855745402699919973897274778066321592214684792070525465486554/check
+curl https://kovan.interrep.link/api/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554/check
 ```
 
 ```json title="Response"
@@ -151,7 +151,7 @@ curl https://kovan.interrep.link/api/reputation/twitter/jack
             "verifiedProfile": true,
             "botometerOverallScore": 1.1
         },
-        "reputation": "GOLD"
+        "reputation": "gold"
     }
 }
 ```

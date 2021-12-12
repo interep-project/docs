@@ -6,7 +6,7 @@ title: InterRep groups
 
 In this section, we will learn how to integrate our InterRep groups in your application.
 
-InterRep allows users to join groups anonymously, so that these groups can then be used by DApps and external services to allow, for example, only certain categories of users to authenticate or to unlock certain features based on the user's group. Each group has a certain provider and a name (which coincides with the reputation when there is a OAuth provider). A user with a GOLD reputation on Twitter can, for example, join the relevant group and access another application by proving that they are part of the group and therefore have a GOLD reputation.
+InterRep allows users to join groups anonymously, so that these groups can then be used by DApps and external services to allow, for example, only certain categories of users to authenticate or to unlock certain features based on the user's group. Each group has a certain provider and a name (which coincides with the reputation when there is a OAuth provider). A user with a gold reputation on Twitter can, for example, join the relevant group and access another application by proving that they are part of the group and therefore have a gold reputation.
 
 The groups are basically composed of a set of Semaphore identity commitments organized in Merkle trees. Thanks to Semaphore it is possible to create a zero-knowledge proof to prove that a user is a member of the group (or a leaf of the tree) without revealing their identity.
 
@@ -53,7 +53,7 @@ const reputation = calculateReputation(OAuthProvider.GITHUB, {
     receivedStars
 })
 
-console.log(reputation) // GOLD
+console.log(reputation) // gold
 ```
 
 ## 3. Create the identity commitment
