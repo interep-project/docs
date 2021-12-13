@@ -6,24 +6,26 @@ sidebar_position: 5
 
 ### Providers
 
+Providers are the services that allow InterRep to obtain identities that meet certain criteria (e.g. group membership, social reputation, or ownership of tokens or emails).
+
 #### `/api/providers`
 
-**GET** - Get all the InterRep supported providers.
+**GET** - Returns all the InterRep supported providers.
 
 ```bash title="Shell"
 curl https://kovan.interrep.link/api/providers
 ```
 
 ```json title="Response"
-{ "data": ["twitter", "github", "reddit", "poap"] }
+{ "data": ["twitter", "github", "reddit", "poap", "email", "telegram"] }
 ```
 
-#### `/api/providers/:provider/:identityCommitment/check`
+#### `/api/providers/:provider/:identityCommitment`
 
-**GET** - Check whether an identity commitment belongs to any provider group:
+**GET** - Returns true if an identity commitment belongs to any provider group.
 
 ```bash title="Shell"
-curl https://kovan.interrep.link/api/providers/github/5389624958916554855745402699919973897274778066321592214684792070525465486554/check
+curl https://kovan.interrep.link/api/providers/github/5389624958916554855745402699919973897274778066321592214684792070525465486554
 ```
 
 ```json title="Response"
@@ -32,9 +34,11 @@ curl https://kovan.interrep.link/api/providers/github/53896249589165548557454026
 
 ### Groups
 
+Groups contain the identity commitments of users who decide to join them. You can add or delete an identity commitment from a group, and each group has a size (i.e. the number of active identity commitments) and the root hash of the group tree.
+
 #### `/api/groups`
 
-**GET** - Get all the InterRep groups.
+**GET** - Returns all the InterRep groups.
 
 ```bash title="Shell"
 curl https://kovan.interrep.link/api/groups
@@ -43,28 +47,67 @@ curl https://kovan.interrep.link/api/groups
 ```json title="Response"
 {
     "data": [
-        { "name": "gold", "provider": "twitter", "size": 1230 },
-        { "name": "silver", "provider": "twitter", "size": 1204 },
-        { "name": "bronze", "provider": "twitter", "size": 123 },
-        { "name": "not_sufficient", "provider": "twitter", "size": 9023 },
-        { "name": "gold", "provider": "github", "size": 1230 },
-        { "name": "silver", "provider": "github", "size": 2003 },
-        { "name": "bronze", "provider": "github", "size": 100 },
-        { "name": "not_sufficient", "provider": "github", "size": 8340 },
-        { "name": "gold", "provider": "reddit", "size": 1400 },
-        { "name": "silver", "provider": "reddit", "size": 3943 },
-        { "name": "bronze", "provider": "reddit", "size": 3243 },
-        { "name": "not_sufficient", "provider": "reddit", "size": 7342 },
-        { "name": "devcon3", "provider": "poap", "size": 23 },
-        { "name": "devcon4", "provider": "poap", "size": 34 },
-        { "name": "devcon5", "provider": "poap", "size": 49 }
+        {
+            "provider": "twitter",
+            "name": "gold",
+            "rootHash": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
+            "size": 0
+        },
+        {
+            "provider": "poap",
+            "name": "devcon5",
+            "rootHash": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
+            "size": 0
+        },
+        {
+            "provider": "telegram",
+            "name": "-1001396261340",
+            "rootHash": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
+            "size": 0
+        },
+        {
+            "provider": "email",
+            "name": "hotmail",
+            "rootHash": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
+            "size": 0
+        },
+        ...
     ]
+}
+```
+
+#### `/api/groups/:provider/:name`
+
+**GET** - Returns a specific InterRep group.
+
+```bash title="Shell"
+curl https://kovan.interrep.link/api/groups/github/gold
+```
+
+```json title="Response"
+{
+    "data": {
+        "provider": "github",
+        "name": "gold",
+        "rootHash": "3539596833905557328479676245499052267688962849195984401151716846778908697643",
+        "size": 1
+    }
 }
 ```
 
 #### `/api/groups/:provider/:name/:identityCommitment`
 
-**POST** - Add an identity commitment to a group and return true (for OAuth groups only).
+**GET** - Returns true if an identity commitment belongs to a group.
+
+```bash title="Shell"
+curl https://kovan.interrep.link/api/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554
+```
+
+```json title="Response"
+{ "data": true }
+```
+
+**POST** - Adds an identity commitment to a group and return true (for OAuth groups only). Your domain must be whitelisted to use this API.
 
 ```bash title="Shell"
 curl -X POST -H "Authorization: token OAUTH-TOKEN" \
@@ -75,7 +118,7 @@ https://kovan.interrep.link/api/groups/github/gold/53896249589165548557454026999
 { "data": true }
 ```
 
-**DELETE** - Delete an identity commitment from a group and return true (for OAuth groups only).
+**DELETE** - Deletes an identity commitment from a group and return true (for OAuth groups only). Your domain must be whitelisted to use this API.
 
 ```bash title="Shell"
 curl -X DELETE -H "Authorization: token OAUTH-TOKEN" \
@@ -86,18 +129,46 @@ https://kovan.interrep.link/api/groups/github/gold/53896249589165548557454026999
 { "data": true }
 ```
 
-#### `/api/groups/:provider/:name/:identityCommitment/path`
+### Trees
 
-**GET** - Get a Merkle tree path.
+Merkle trees are used as a data structure for groups. Each group has a tree, which is created when the first identity commitment is added. Identity commitments are therefore the leaves of the Merkle trees.
+
+#### `/api/trees/:rootHash`
+
+**GET** - Returns the leaves of a tree.
 
 ```bash title="Shell"
-curl https://kovan.interrep.link/api/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554/path
+curl https://kovan.interrep.link/api/trees/3539596833905557328479676245499052267688962849195984401151716846778908697643
+```
+
+```json title="Response"
+{ "data": ["0", "15227719113467049976699670018631375748328892669189551254396131971022633202277"] }
+```
+
+#### `/api/trees/:rootHash/:leafHash`
+
+**GET** - Returns true if a leaf belongs to a tree.
+
+```bash title="Shell"
+curl https://kovan.interrep.link/api/trees/3539596833905557328479676245499052267688962849195984401151716846778908697643/15227719113467049976699670018631375748328892669189551254396131971022633202277
+```
+
+```json title="Response"
+{ "data": true }
+```
+
+#### `/api/trees/:rootHash/:leafHash/proof`
+
+**GET** - Returns a Merkle tree proof.
+
+```bash title="Shell"
+curl https://kovan.interrep.link/api/trees/3539596833905557328479676245499052267688962849195984401151716846778908697643/15227719113467049976699670018631375748328892669189551254396131971022633202277/proof
 ```
 
 ```json title="Response"
 {
     "data": {
-        "pathElements": [
+        "siblingNodes": [
             "0",
             "14744269619966411208579211824598458697587494354926760081771325075741142829156",
             "7423237065226347324353380772367382631490014989348495481811164164159255474657",
@@ -115,43 +186,66 @@ curl https://kovan.interrep.link/api/groups/github/gold/538962495891655485574540
             "11331146992410411304059858900317123658895005918277453009197229807340014528524",
             "15819538789928229930262697811477882737253464456578333862691129291651619515538"
         ],
-        "indices": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        "root": "14292921841668459321530999124084402502172700548060824366716414263194752155209"
+        "path": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "root": "3539596833905557328479676245499052267688962849195984401151716846778908697643"
     }
 }
 ```
 
-#### `/api/groups/:provider/:name/:identityCommitment/check`
+#### `/api/trees/batches`
 
-**GET** - Check whether an identity commitment belongs to a group.
+**GET** - Returns all the root batches.
 
 ```bash title="Shell"
-curl https://kovan.interrep.link/api/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554/check
+curl https://kovan.interrep.link/api/trees/batches
 ```
 
 ```json title="Response"
-{ "data": true }
+{
+    "data": [
+        {
+            "group": { "provider": "github", "name": "gold" },
+            "rootHashes": ["14273848199791178467311820318933280591305571798471599149384455313172966875782"],
+            "transaction": {
+                "hash": "0x1dec16b1c76a0a1fc9b4c7c898ae0ba72f496868fb7d2fe447fefe5eeaf676c1",
+                "blockNumber": 10
+            }
+        },
+        {
+            "group": { "provider": "github", "name": "gold" },
+            "rootHashes": [
+                "19217088683336594659449020493828377907203207941212636669271704950158751593251",
+                "3539596833905557328479676245499052267688962849195984401151716846778908697643"
+            ],
+            "transaction": {
+                "hash": "0xd1890bb9bda0adc650aefe974ccfe26665fe471c8a9f5306591bcc0c71088ced",
+                "blockNumber": 11
+            }
+        }
+    ]
+}
 ```
 
-### Reputation
+#### `/api/trees/batches/:rootHash`
 
-#### `/api/reputation/twitter/:username`
-
-**GET** - Get Twitter reputation by username.
+**GET** - Returns the batch to which a root hash belongs.
 
 ```bash title="Shell"
-curl https://kovan.interrep.link/api/reputation/twitter/jack
+curl https://kovan.interrep.link/api/trees/batches/3539596833905557328479676245499052267688962849195984401151716846778908697643
 ```
 
 ```json title="Response"
 {
     "data": {
-        "parameters": {
-            "followers": 5776282,
-            "verifiedProfile": true,
-            "botometerOverallScore": 1.1
-        },
-        "reputation": "gold"
+        "group": { "provider": "github", "name": "gold" },
+        "rootHashes": [
+            "19217088683336594659449020493828377907203207941212636669271704950158751593251",
+            "3539596833905557328479676245499052267688962849195984401151716846778908697643"
+        ],
+        "transaction": {
+            "hash": "0xd1890bb9bda0adc650aefe974ccfe26665fe471c8a9f5306591bcc0c71088ced",
+            "blockNumber": 11
+        }
     }
 }
 ```
