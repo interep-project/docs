@@ -17,7 +17,7 @@ Before going any further, if you are not familiar with Semaphore, read the [offi
 :::
 
 :::info
-If you want to integrate the whole onboarding flow into your UI, follow all the steps. Otherwise, if you want to redirect the user to our app to allow him/her to join a group, follow the steps in the following order: 3, 5, 6.
+If you want to integrate the whole onboarding flow into your UI, follow all the steps. Otherwise, if you want to redirect the user to our app to allow him/her to join a group, follow the steps in the following order: 3, 5, 6. Just remember that for Email and Telegram providers you can't use the API to add and remove id commitment in groups.
 :::
 
 ## 1. Generate a OAuth token
@@ -30,7 +30,7 @@ import { API } from "@interrep/api"
 const api = new API()
 const providers = await api.getProviders()
 
-console.log(providers) // ["twitter", "github", "reddit", "poap", "telegram"]
+console.log(providers) // ["twitter", "github", "reddit", "poap", "telegram", "email"]
 ```
 
 :::info
@@ -105,7 +105,7 @@ const userAddress = await signer.getAddress()
 
 await api.addIdentityCommitment({
     provider: "poap",
-    name: "DEVCON_4",
+    name: "devcon4",
     identityCommitment,
     userAddress,
     userSignature
@@ -116,15 +116,19 @@ await api.addIdentityCommitment({
 If you need to get our supported groups you can use the `api.getGroups()` function.
 :::
 
-## 5. Get the Merkle tree path
+## 5. Get the Merkle tree proof
 
-After the user is part of a group, you can obtain the Merkle tree path needed to generate the proof of membership with Semaphore.
+After the user is part of a group, you can obtain the Merkle tree proof needed to generate the proof of membership with Semaphore.
 
 ```typescript
-const path = await api.getMerkleTreePath({
+const { rootHash } = await api.getGroup({
     provider: "github",
-    name: reputation,
-    identityCommitment
+    name: reputation
+})
+
+const proof = await api.getMerkleTreeProof({
+    rootHash,
+    leafHash: identityCommitment
 })
 ```
 
