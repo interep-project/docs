@@ -18,4 +18,8 @@ Telegram is a cross-platform, instant messaging system very popular. InterRep al
 
 ## Available groups
 
-Currently Telegram users can add the InterRep bot to any Telegram group.
+Telegram groups are identified with the id of the group chat. Currently we support the following Telegram groups: **`-1001396261340`** ([InterRep](https://t.me/interrep)).
+
+:::tip
+If you would like a Telegram group added please contact us.
+:::

@@ -49,5 +49,5 @@ The Outlook and Hotmail groups are for testing purposes only allowing people to 
 :::
 
 :::tip
-At the moment only groups added by the InterRep team can be used to verify email addresses against. If you have a domain you would like us to consider adding please get in touch.
+If you have a domain you would like us to consider adding please get in touch.
 :::
