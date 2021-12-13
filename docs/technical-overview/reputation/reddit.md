@@ -84,4 +84,4 @@
 
 ---
 
-#### Configuration file: [src/criteria/reddit.ts](https://github.com/InterRep/interrep.js/blob/main/packages/reputation-criteria/src/criteria/reddit.ts)
+#### Configuration file: [src/criteria/reddit.ts](https://github.com/InterRep/interrep.js/blob/main/packages/reputation/src/criteria/reddit.ts)

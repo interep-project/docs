@@ -39,10 +39,10 @@ You only need to create a token if the provider is a OAuth provider (e.g. Twitte
 
 ## 2. Calculate the user's reputation
 
-Once you have generated a valid OAuth token and are able to obtain the user's account data you can calculate their reputation with our [`@interrep/reputation-criteria`](https://github.com/InterRep/interrep.js/tree/main/packages/reputation-criteria) package.
+Once you have generated a valid OAuth token and are able to obtain the user's account data you can calculate their reputation with our [`@interrep/reputation`](https://github.com/InterRep/interrep.js/tree/main/packages/reputation) package.
 
 ```typescript
-import { calculateReputation, OAuthProvider } from "@interrep/reputation-criteria"
+import { calculateReputation, OAuthProvider } from "@interrep/reputation"
 
 // 'getGithubUserByToken' is an example function.
 const { id, plan, followers, receivedStars } = await getGithubUserByToken(token)
