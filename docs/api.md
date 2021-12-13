@@ -138,7 +138,7 @@ Merkle trees are used as a data structure for groups. Each group has a tree, whi
 **GET** - Returns the leaves of a tree.
 
 ```bash title="Shell"
-curl https://kovan.interrep.link/api/trees/3539596833905557328479676245499052267688962849195984401151716846778908697643
+curl https://kovan.interrep.link/api/trees/3539596833905557328479676245499052267688962849195984401151716846778908697643?limit=2
 ```
 
 ```json title="Response"
