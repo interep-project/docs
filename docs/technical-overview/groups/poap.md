@@ -13,7 +13,13 @@ sidebar_position: 3
 3. the user generates an identity commitment for the POAP provider;
 4. the user joins the InterRep group or leaves it if they have previously joined.
 
+![POAP flow](/img/poap_flow.svg)
+
 ## Use cases
+
+### 1. Bootstraping social networks
+
+Conference POAPs have a very strong proof-of-humanity guarantee, since they're handed out in person. That could make a great start to bootstrap a social network where group members mutually attest to build reputation.
 
 ## Available groups
 

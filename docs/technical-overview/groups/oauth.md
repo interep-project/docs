@@ -9,8 +9,11 @@ Users who have Reddit, Twitter or Github accounts can access InterRep with OAuth
 ## Flow
 
 1. The user logins to one of our supported OAuth providers and InterRep calculates their reputation on that platform;
-2. the user generates an identity commitment for the OAuth provider;
-3. the user joins or leaves the group related to their reputation on the platform where they are authenticated.
+2. the user connect their Metamask wallet;
+3. the user generates an identity commitment for the OAuth provider;
+4. the user joins or leaves the group related to their reputation on the platform where they are authenticated.
+
+![OAuth flow](/img/oauth_flow.svg)
 
 :::caution
 Users can only authenticate to one OAuth provider at a time.
@@ -25,6 +28,10 @@ Social networks are used on a global scale and play a crucial role in our societ
 ### 2. Testnet faucets
 
 Testnet faucets allow developers to get ethers to test their DApps and contracts on Testnet networks. Since these services require some form of verification to avoid too many requests from bots or fake accounts, it is quite difficult to get ethers without sharing personal data. A user with a high reputation on Twitter belonging to an InterRep group could, for example, prove their authenticity without sharing any data, and thus obtain the ethers he needs for the development of their DApp.
+
+### 3. Allocating funds to public goods
+
+Allocating funds towards public goods efficiently, safely, and fairly is a complex challenge. One of the main problems in this type of context is the uniqueness of the contributors. InterRep groups can be used to ensure that each contributor is unique based on membership in one or more groups.
 
 ## Available groups
 

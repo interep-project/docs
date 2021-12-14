@@ -8,13 +8,14 @@ Users can join InterRep groups that link to certain email domains or certain top
 
 ## Flow
 
-1.  The user enters their email address on the frontend which is then checked to see if it qualifies the user for any of our groups;
-2.  if the users email address qualifies they are sent an email containing a magic link;
-3.  the user clicks on the magic link and is redirected to an appropriate endpoint;
-4.  the user selects which group they would like to join (only groups the are eligible to join are shown) and generates an identity commitment for the email provider;
-5.  the user joins the InterRep group or leaves it if they have previously joined.
+1. The user enters their email address on the frontend which is then checked to see if it qualifies the user for any of our groups;
+2. if the users email address qualifies they are sent an email containing a magic link;
+3. the user clicks on the magic link and is redirected to an appropriate InterRep endpoint;
+4. the user connect their Metamask wallet;
+5. the user selects which group they would like to join (only groups that are eligible to join are shown) and generates an identity commitment for the email provider;
+6. the user joins the InterRep group or leaves it if they have previously joined.
 
-![Email flow](/img/email_flow.png)
+![Email flow](/img/email_flow.svg)
 
 :::info
 If the user has qualified for more than one group then they can join/leave the other group from the same page the magic link sent them to.

@@ -4,17 +4,24 @@ sidebar_position: 4
 
 # Telegram
 
-Telegram is a cross-platform, instant messaging system very popular. InterRep allows Telegram users to add a bot to groups and join the corresponding InterRep groups with magic links.
+Telegram is a very popular cross-platform, instant messaging system. InterRep allows Telegram users to add a bot to groups and join the corresponding InterRep groups with magic links.
 
 ## Flow
 
 1. A user adds the InterRep bot to a Telegram group;
-2. The group users run a bot command to join the InterRep group;
-3. The group users click on the magic link sent in the private chat;
-4. The users generates an identity commitment in the InterRep app for the Telegram provider;
-5. the user joins the InterRep group or leaves it if they have previously joined.
+2. the group users run a bot command to join the InterRep group;
+3. the group users click on the magic link sent in the private chat and is redirected to an appropriate InterRep endpoint;
+4. the users connect their Metamask wallets;
+5. the users generates an identity commitment for the Telegram provider;
+6. the user joins the InterRep group or leaves it if they have previously joined.
+
+![Telegram flow](/img/telegram_flow.svg)
 
 ## Use cases
+
+### 1. DAO voting groups
+
+Telegram groups could be used to curate and invite a group of users to form a DAO voting group. Users would be added to the Telegram group on the basis of showing an active engagement with the community.
 
 ## Available groups
 
