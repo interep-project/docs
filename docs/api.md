@@ -129,40 +129,12 @@ https://kovan.interrep.link/api/groups/github/gold/53896249589165548557454026999
 { "data": true }
 ```
 
-### Trees
-
-Merkle trees are used as a data structure for groups. Each group has a tree, which is created when the first identity commitment is added. Identity commitments are therefore the leaves of the Merkle trees.
-
-#### `/api/trees/:rootHash`
-
-**GET** - Returns the leaves of a tree.
-
-```bash title="Shell"
-curl https://kovan.interrep.link/api/trees/3539596833905557328479676245499052267688962849195984401151716846778908697643?limit=2
-```
-
-```json title="Response"
-{ "data": ["0", "15227719113467049976699670018631375748328892669189551254396131971022633202277"] }
-```
-
-#### `/api/trees/:rootHash/:leafHash`
-
-**GET** - Returns true if a leaf belongs to a tree.
-
-```bash title="Shell"
-curl https://kovan.interrep.link/api/trees/3539596833905557328479676245499052267688962849195984401151716846778908697643/15227719113467049976699670018631375748328892669189551254396131971022633202277
-```
-
-```json title="Response"
-{ "data": true }
-```
-
-#### `/api/trees/:rootHash/:leafHash/proof`
+#### `/api/groups/:provider/:name/:identityCommitment/proof`
 
 **GET** - Returns a Merkle tree proof.
 
 ```bash title="Shell"
-curl https://kovan.interrep.link/api/trees/3539596833905557328479676245499052267688962849195984401151716846778908697643/15227719113467049976699670018631375748328892669189551254396131971022633202277/proof
+curl https://kovan.interrep.link/api/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554/proof
 ```
 
 ```json title="Response"
@@ -190,6 +162,34 @@ curl https://kovan.interrep.link/api/trees/3539596833905557328479676245499052267
         "root": "3539596833905557328479676245499052267688962849195984401151716846778908697643"
     }
 }
+```
+
+### Trees
+
+Merkle trees are used as a data structure for groups. Each group has a tree, which is created when the first identity commitment is added. Identity commitments are therefore the leaves of the Merkle trees.
+
+#### `/api/trees/:rootHash`
+
+**GET** - Returns the leaves of a tree.
+
+```bash title="Shell"
+curl https://kovan.interrep.link/api/trees/3539596833905557328479676245499052267688962849195984401151716846778908697643?limit=2
+```
+
+```json title="Response"
+{ "data": ["0", "15227719113467049976699670018631375748328892669189551254396131971022633202277"] }
+```
+
+#### `/api/trees/:rootHash/:leafHash`
+
+**GET** - Returns true if a leaf belongs to a tree.
+
+```bash title="Shell"
+curl https://kovan.interrep.link/api/trees/3539596833905557328479676245499052267688962849195984401151716846778908697643/15227719113467049976699670018631375748328892669189551254396131971022633202277
+```
+
+```json title="Response"
+{ "data": true }
 ```
 
 #### `/api/trees/batches`
