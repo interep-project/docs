@@ -121,14 +121,10 @@ If you need to get our supported groups you can use the `api.getGroups()` functi
 After the user is part of a group, you can obtain the Merkle tree proof needed to generate the proof of membership with Semaphore.
 
 ```typescript
-const { rootHash } = await api.getGroup({
-    provider: "github",
-    name: reputation
-})
-
 const proof = await api.getMerkleTreeProof({
-    rootHash,
-    leafHash: identityCommitment
+    provider: "github",
+    name: reputation,
+    identityCommitment
 })
 ```
 
