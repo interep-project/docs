@@ -7,9 +7,9 @@ title: Introduction
 
 InterRep allows users to join groups based on membership in external groups, based on specific properties of the user's identity, or based on reputation gained on social networks. Groups are basically sets of identity commitments related to users and organized as Merkle trees. What makes these groups extremely useful is the fact that users can prove that they belong to them without revealing their identity. This is possible thanks to the use of so-called ZK-Snarks and Semaphore.
 
-This important feature can therefore be divided into two important steps: a first phase relating to the addition of users to the group, and a second phase in which those same users can generate a proof that they belong to the group in an anonymous way.
+This important feature can therefore be divided into two important steps: a first step in which users can join groups, and a second step in which those users can generate their anonymous proof to prove that they belong to a group.
 
-So let's see how InterRep enables this and how these technologies are used.
+So let's see how InterRep enables this feature and how these technologies are used.
 
 :::info
 In cryptography and computer science, a hash tree or [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) is a tree in which every "leaf" (node) is labelled with the cryptographic hash of a data block, and every node that is not a leaf (called a branch, inner node, or inode) is labelled with the cryptographic hash of the labels of its child nodes.
@@ -44,3 +44,7 @@ A Merkle proof, or proof of membership, is the tree data needed to verify that a
 Group types, as mentioned earlier, are defined by providers. Each provider has its own flow in the system and differs essentially in the ways in which it is verified that a user meets certain properties (e.g. social reputation, group membership or email ownership).
 
 The next paragraphs discuss in more detail the different providers currently supported by InterRep.
+
+:::info
+InterRep groups can also be divided into onchain and offchain groups. The onchain groups are fully managed in the Ethereum `Groups.sol` contract, whereas the offchain groups are managed by the reputation service and only their Merkle tree roots are saved on the contract at regular intervals.
+:::
