@@ -9,29 +9,15 @@ slug: /
 This documentation refers to the latest version of InterRep ([kovan.interrep.link](https://kovan.interrep.link)), which is still at an early stage. The production environment ([interrep.link](https://interrep.link)) still refers to the old MVP version and it will be updated soon.
 :::
 
-InterRep is a system which allows people to export cryptographic proofs of their **reputation** accrued on social networks or other services and to put these proofs on a **decentralized** platform (i.e. Ethereum), in order to allow decentralized applications or services to verify users' reputation efficiently and without sensitive data.
+## Overview
 
-The current version allows users with a high reputation on social platforms (e.g. Twitter, Github or Reddit) to cryptographically link their Ethereum account with their social network accounts and to create onchain **badges** (represented as NFTs).
+One of the biggest problems in online communities is the ease with which it is possible to create fake accounts, which reduce the quality of information and interactions. And if a high number of new fake identities can be generated at low cost a reputation system can be vulnerable to so-called sybil-attacks.
 
-In addition, users can join special **groups** anonymously, so that external services can use InterRep to verify, for example, if a user is part of a specific group without knowing their identity.
+Reputation is the key to building trust in a system and it can often be used as a guarantee of authenticity. But it is difficult to obtain and to share without exposing your data. Many platforms today use public attestations to avoid sybil attacks, thereby forcing users to give out their personal information in order to certify their identities. This makes this kind of mechanism inefficient and unsuitable to protect users' data.
 
-## What is our goal?
+Giving people the opportunity to export their reputation across platforms (e.g. social networks) without exposing their personal data would expand the compounding benefits of trusted human interactions across the web, and it would make it much more difficult to create fake accounts.
 
-Since reputation is the key to creating **trust** and it is difficult to obtain, giving people the opportunity to export their reputation across platforms (e.g. social networks) would expand the compounding benefits of trusted human interactions across the web.
-
-Many platforms today use public attestations to avoid sybil attacks and to confirm their users' identities, thereby forcing users to give out their personal information in order to certify their identities. This makes this kind of mechanism inefficient and unsuitable to protect users' data.
-
-Even if we urgently need a Web3, most of people's data still resides within centralized platforms. The aim of InterRep is to create a **bridge** between Web2 and Web3, giving users the possibility to transfer their pre-existing reputation from the most used platforms to decentralized platforms in a privacy-focused context. Portable reputation can help prevent sybil attacks and can therefore make it easier for DApps or other services to manage the **identities** of their users.
-
-## Features
-
-### Reputation badges
-
-InterRep allows users to **link** a reputable Web2 account (e.g. Twitter, Github, Reddit) to an Ethereum account without retaining a readable record of this association but instead encrypting it with the user's public key. Users can link their accounts only if they have a certain reputation, which is calculated using pre-defined **[criteria](/technical-overview/reputation/intro)** based on parameters provided by social platforms. The link between the accounts is then represented by a **badge**, i.e. a non-fungible token (NFT) minted by InterRep which certifies the user's reputation and which can be used, for example, as collateral in other applications. The user can then revoke a badge by burning the NFT and unlinking the accounts.
-
-### Groups
-
-**Privacy** is at the heart of the project and our main next steps are to further improve the system in order to allow people to export their reputation **anonymously**. InterRep allows users to join special groups based on membership in external groups, on specific user properties, or based on reputation on social networks. Basically, users create a **Semaphore** identity commitment using their Ethereum account with Metamask, which is then added to the group corresponding to the user's Web2 platform. Only the user, then, will be able to use their identity commitment to prove they belong to the group. InterRep will therefore provides APIs to allow external applications to use these groups to verify their users' reputation without knowing their identity.
+InterRep provides special groups that can be used by DApps or services to verify users' reputation without exposing their identities. Users can join these groups based on their membership in external groups (e.g. Telegram groups), their reputation in social networks (e.g Twitter groups), or other specific user properties. InterRep only checks that the criteria for joining the group are valid, without saving any sensitive data. What is added in the groups is basically a unique identifier created by the user with their Ethereum account and Semaphore. Only the user, then, will be able to prove that their identifier is part of a group.
 
 :::info
 [Semaphore](https://semaphore.appliedzkp.org/) is a zero-knowledge gadget which allows Ethereum users to prove their membership of a set which they had previously joined without revealing their original identity.
@@ -40,5 +26,3 @@ InterRep allows users to **link** a reputable Web2 account (e.g. Twitter, Github
 ## Getting started
 
 InterRep consists of several components. If you want to learn more about the way it works, go to our [technical overview](/technical-overview/intro). If you have a service that needs a system to prevent sybil attacks or to verify the authenticity of users, read our [tutorial](/tutorials/interrep-groups) on how to integrate our groups.
-
-Our Web application is live on [kovan.interrep.link](https://kovan.interrep.link), but know that it is still in a testing phase.
