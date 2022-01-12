@@ -3,7 +3,7 @@ sidebar_position: 1
 slug: /
 ---
 
-# 👋🏼 Welcome
+# Introduction
 
 :::caution
 This documentation refers to the latest version of InterRep ([kovan.interrep.link](https://kovan.interrep.link)), which is still at an early stage. The production environment ([interrep.link](https://interrep.link)) still refers to the old MVP version and it will be updated soon.
