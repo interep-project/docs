@@ -6,18 +6,18 @@ sidebar_position: 6
 
 The Graph is an indexing protocol for querying networks like Ethereum and IPFS. Anyone can build and publish open APIs, called subgraphs, making data easily accessible.
 
-The onchain InterRep groups and their members can be queried using GraphQL queries with our subgraph, available at https://thegraph.com/hosted-service/subgraph/interrep/kovan. In addition to the onchain groups, it is also possible to query our offchain groups. However, they do not contain all their group members but only the Merkle tree roots added at regular intervals.
+The onchain InterRep groups and their members can be queried using GraphQL queries with our subgraph, available at https://thegraph.com/hosted-service/subgraph/interep/kovan. In addition to the onchain groups, it is also possible to query our offchain groups. However, they do not contain all their group members but only the Merkle tree roots added at regular intervals.
 
 You can use various GraphQL [client libraries](https://thegraph.com/docs/developer/querying-from-your-app) to query the subgraph and populate your app with the data indexed by the subgraph.
 
 :::tip
-If you don't know GraphQL, you can try running some queries using the Graph Explorer and its [GraphQL playground](https://thegraph.com/hosted-service/subgraph/interrep/kovan?selected=playground). You can find some examples [here](https://thegraph.com/docs/developer/graphql-api).
+If you don't know GraphQL, you can try running some queries using the Graph Explorer and its [GraphQL playground](https://thegraph.com/hosted-service/subgraph/interep/kovan?selected=playground). You can find some examples [here](https://thegraph.com/docs/developer/graphql-api).
 :::
 
 ## Endpoints
 
--   **Queries** (HTTP): https://api.thegraph.com/subgraphs/name/interrep/kovan
--   **Subscriptions** (WS): wss://api.thegraph.com/subgraphs/name/interrep/kovan
+-   **Queries** (HTTP): https://api.thegraph.com/subgraphs/name/interep/kovan
+-   **Subscriptions** (WS): wss://api.thegraph.com/subgraphs/name/interep/kovan
 
 ## Schema
 

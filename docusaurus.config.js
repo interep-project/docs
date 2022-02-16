@@ -4,13 +4,13 @@ const darkCodeTheme = require("prism-react-renderer/themes/palenight")
 // With JSDoc @type annotations, IDEs can provide config autocompletion
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-    title: "InterRep Documentation",
-    url: "https://docs.interrep.link",
+    title: "Interep Documentation",
+    url: "https://docs.interep.link",
     baseUrl: "/",
     favicon: "/img/favicon.ico",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
-    organizationName: "InterRep",
+    organizationName: "interep",
     projectName: "docs",
     trailingSlash: false,
 
@@ -21,7 +21,7 @@ module.exports = {
             ({
                 docs: {
                     sidebarPath: require.resolve("./sidebars.js"),
-                    editUrl: "https://github.com/InterRep/docs/edit/main/",
+                    editUrl: "https://github.com/interep/docs/edit/main/",
                     routeBasePath: "/"
                 },
                 theme: {
@@ -35,10 +35,10 @@ module.exports = {
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
             navbar: {
-                title: "InterRep",
+                title: "Interep",
                 items: [
                     {
-                        href: "https://github.com/InterRep",
+                        href: "https://github.com/interep",
                         label: "GitHub",
                         position: "right"
                     }
@@ -81,7 +81,7 @@ module.exports = {
                             },
                             {
                                 label: "Telegram",
-                                href: "https://t.me/interrep"
+                                href: "https://t.me/interep"
                             }
                         ]
                     },
@@ -90,16 +90,16 @@ module.exports = {
                         items: [
                             {
                                 label: "App",
-                                href: "https://kovan.interrep.link"
+                                href: "https://kovan.interep.link"
                             },
                             {
                                 label: "GitHub",
-                                href: "https://github.com/InterRep"
+                                href: "https://github.com/interep"
                             }
                         ]
                     }
                 ],
-                copyright: `Copyright © ${new Date().getFullYear()} InterRep`
+                copyright: `Copyright © 2021 Interep`
             },
             prism: {
                 theme: lightCodeTheme,

@@ -1,6 +1,6 @@
 {
-    "name": "interrep-docs",
-    "description": "InterRep documentation website.",
+    "name": "interep-docs",
+    "description": "Interep documentation website.",
     "version": "0.1.0",
     "private": true,
     "scripts": {

@@ -1,40 +1,40 @@
 <p align="center">
     <h1 align="center">
-        InterRep docs
+        Interep docs
     </h1>
-    <p align="center">InterRep documentation website.</p>
+    <p align="center">Interep documentation website.</p>
 </p>
 
 <p align="center">
-    <a href="https://github.com/InterRep" target="_blank">
-        <img src="https://img.shields.io/badge/project-InterRep-blue.svg?style=flat-square">
+    <a href="https://github.com/interep" target="_blank">
+        <img src="https://img.shields.io/badge/project-Interep-blue.svg?style=flat-square">
     </a>
-    <a href="https://github.com/interrep/docs/blob/main/LICENSE" target="_blank">
-        <img alt="Github license" src="https://img.shields.io/github/license/interrep/docs.svg?style=flat-square">
+    <a href="https://github.com/interep/docs/blob/main/LICENSE" target="_blank">
+        <img alt="Github license" src="https://img.shields.io/github/license/interep/docs.svg?style=flat-square">
     </a>
     <a href="https://prettier.io/" target="_blank">
         <img alt="Code style prettier" src="https://img.shields.io/badge/code%20style-prettier-f8bc45?style=flat-square&logo=prettier">
     </a>
-    <img alt="Repository top language" src="https://img.shields.io/github/languages/top/InterRep/docs?style=flat-square">
+    <img alt="Repository top language" src="https://img.shields.io/github/languages/top/interep/docs?style=flat-square">
 </p>
 
 <div align="center">
     <h4>
-        <a href="https://docs.interrep.link/contributing">
+        <a href="https://docs.interep.link/contributing">
             👥 Contributing
         </a>
         <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <a href="https://docs.interrep.link/code-of-conduct">
+        <a href="https://docs.interep.link/code-of-conduct">
             🤝 Code of conduct
         </a>
         <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <a href="https://t.me/interrep">
+        <a href="https://t.me/interep">
             🗣️ Chat &amp; Support
         </a>
     </h4>
 </div>
 
-Our [documentation website](https://docs.interrep.link) was generated with [Docusaurus](https://docusaurus.io/). Please, check https://docusaurus.io/docs for more information.
+Our [documentation website](https://docs.interep.link) was generated with [Docusaurus](https://docusaurus.io/). Please, check https://docusaurus.io/docs for more information.
 
 ___
 
@@ -43,8 +43,8 @@ ___
 Clone this repository and install the dependencies:
 
 ```bash
-git clone https://github.com/InterRep/docs.git interrep-docs
-cd interrep-docs && yarn
+git clone https://github.com/interep/docs.git interep-docs
+cd interep-docs && yarn
 ```
 
 ## 📜 Usage

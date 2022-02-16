@@ -25,7 +25,7 @@ Telegram groups could be used to curate and invite a group of users to form a DA
 
 ## Available groups
 
-Telegram groups are identified with the id of the group chat. Currently we support the following Telegram groups: **`-1001396261340`** ([InterRep](https://t.me/interrep)).
+Telegram groups are identified with the id of the group chat. Currently we support the following Telegram groups: **`-1001396261340`** ([InterRep](https://t.me/interep)).
 
 :::tip
 If you would like a Telegram group added please contact us.

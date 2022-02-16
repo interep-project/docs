@@ -5,11 +5,11 @@ title: Introduction
 
 # Groups
 
-InterRep allows users to join groups based on membership in external groups, based on specific properties of the user's identity, or based on reputation gained on social networks. Groups are basically sets of identity commitments related to users and organized as Merkle trees. What makes these groups extremely useful is the fact that users can prove that they belong to them without revealing their identity. This is possible thanks to the use of so-called ZK-Snarks and Semaphore.
+Interep allows users to join groups based on membership in external groups, based on specific properties of the user's identity, or based on reputation gained on social networks. Groups are basically sets of identity commitments related to users and organized as Merkle trees. What makes these groups extremely useful is the fact that users can prove that they belong to them without revealing their identity. This is possible thanks to the use of so-called ZK-Snarks and Semaphore.
 
 This important feature can therefore be divided into two important steps: a first step in which users can join groups, and a second step in which those users can generate their anonymous proof to prove that they belong to a group.
 
-So let's see how InterRep enables this feature and how these technologies are used.
+So let's see how Interep enables this feature and how these technologies are used.
 
 :::info
 In cryptography and computer science, a hash tree or [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) is a tree in which every "leaf" (node) is labelled with the cryptographic hash of a data block, and every node that is not a leaf (called a branch, inner node, or inode) is labelled with the cryptographic hash of the labels of its child nodes.
@@ -17,21 +17,21 @@ In cryptography and computer science, a hash tree or [Merkle tree](https://en.wi
 
 ## Joining a group
 
-In the first phase InterRep allows users to join groups with the web application or via [API](/api#apigroupsprovidernameidentitycommitment), that can be used by external services. Although there are different types of groups, the way users are added is the same. Each user uses their Ethereum account to generate an identity commitment that uniquely represents the user and the type of group they wish to join.
+In the first phase Interep allows users to join groups with the web application or via [API](/api#apigroupsprovidernameidentitycommitment), that can be used by external services. Although there are different types of groups, the way users are added is the same. Each user uses their Ethereum account to generate an identity commitment that uniquely represents the user and the type of group they wish to join.
 
 Group types are defined by identity providers, i.e. the services from which the information necessary to certify a certain reputation or certain properties is obtained. Whereas the users Ethereum account is used to sign a message with the identity provider and to generate a Semaphore identity.
 
-InterRep uses the [@interrep/identity](https://github.com/InterRep/interrep.js/tree/main/packages/identity) package to generate identities, while the [reputation-service](https://github.com/InterRep/reputation-service) takes care of adding the identity commitments in the Merkle tree associated with the group.
+Interep uses the [@interep/identity](https://github.com/InterRep/interep.js/tree/main/packages/identity) package to generate identities, while the [reputation-service](https://github.com/InterRep/reputation-service) takes care of adding the identity commitments in the Merkle tree associated with the group.
 
 In addition to joining a group, users can later decide to leave it. In this case the Merkle tree leaf corresponding to identity commitment will be set to 0.
 
 :::info
-InterRep does not save any association between the Ethereum account address and the provider.
+Interep does not save any association between the Ethereum account address and the provider.
 :::
 
 ## Generating a proof
 
-In the second phase, InterRep provides [APIs](/api#groups) to allow external services to use groups to authenticate users who belong to a certain group without revealing their identity. The APIs allow, for example, to obtain a list of groups with the size of each one (i.e. the number of users of the group), to verify if an identity commitment belongs to a group or to obtain a Merkle proof related to the leaf of a tree (i.e. the identity commitment of a group).
+In the second phase, Interep provides [APIs](/api#groups) to allow external services to use groups to authenticate users who belong to a certain group without revealing their identity. The APIs allow, for example, to obtain a list of groups with the size of each one (i.e. the number of users of the group), to verify if an identity commitment belongs to a group or to obtain a Merkle proof related to the leaf of a tree (i.e. the identity commitment of a group).
 
 Merkle proofs can therefore be used to create zero-knowledge proofs with Semaphore.
 
@@ -43,8 +43,8 @@ A Merkle proof, or proof of membership, is the tree data needed to verify that a
 
 Group types, as mentioned earlier, are defined by providers. Each provider has its own flow in the system and differs essentially in the ways in which it is verified that a user meets certain properties (e.g. social reputation, group membership or email ownership).
 
-The next paragraphs discuss in more detail the different providers currently supported by InterRep.
+The next paragraphs discuss in more detail the different providers currently supported by Interep.
 
 :::info
-InterRep groups can also be divided into onchain and offchain groups. The onchain groups are fully managed in the Ethereum `Groups.sol` contract, whereas the offchain groups are managed by the reputation service and only their Merkle tree roots are saved on the contract at regular intervals.
+Interep groups can also be divided into onchain and offchain groups. The onchain groups are fully managed in the Ethereum `Groups.sol` contract, whereas the offchain groups are managed by the reputation service and only their Merkle tree roots are saved on the contract at regular intervals.
 :::

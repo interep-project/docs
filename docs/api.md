@@ -13,7 +13,7 @@ Providers are the services that allow InterRep to obtain identities that meet ce
 **GET** - Returns all the InterRep supported providers.
 
 ```bash title="Shell"
-curl https://kovan.interrep.link/api/providers
+curl https://kovan.interep.link/api/providers
 ```
 
 ```json title="Response"
@@ -25,7 +25,7 @@ curl https://kovan.interrep.link/api/providers
 **GET** - Returns true if an identity commitment belongs to any provider group.
 
 ```bash title="Shell"
-curl https://kovan.interrep.link/api/providers/github/5389624958916554855745402699919973897274778066321592214684792070525465486554
+curl https://kovan.interep.link/api/providers/github/5389624958916554855745402699919973897274778066321592214684792070525465486554
 ```
 
 ```json title="Response"
@@ -41,7 +41,7 @@ Groups contain the identity commitments of users who decide to join them. You ca
 **GET** - Returns all the InterRep groups.
 
 ```bash title="Shell"
-curl https://kovan.interrep.link/api/groups
+curl https://kovan.interep.link/api/groups
 ```
 
 ```json title="Response"
@@ -81,7 +81,7 @@ curl https://kovan.interrep.link/api/groups
 **GET** - Returns a specific InterRep group.
 
 ```bash title="Shell"
-curl https://kovan.interrep.link/api/groups/github/gold
+curl https://kovan.interep.link/api/groups/github/gold
 ```
 
 ```json title="Response"
@@ -100,7 +100,7 @@ curl https://kovan.interrep.link/api/groups/github/gold
 **GET** - Returns true if an identity commitment belongs to a group.
 
 ```bash title="Shell"
-curl https://kovan.interrep.link/api/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554
+curl https://kovan.interep.link/api/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554
 ```
 
 ```json title="Response"
@@ -111,7 +111,7 @@ curl https://kovan.interrep.link/api/groups/github/gold/538962495891655485574540
 
 ```bash title="Shell"
 curl -X POST -H "Authorization: token OAUTH-TOKEN" \
-https://kovan.interrep.link/api/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554
+https://kovan.interep.link/api/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554
 ```
 
 ```json title="Response"
@@ -122,7 +122,7 @@ https://kovan.interrep.link/api/groups/github/gold/53896249589165548557454026999
 
 ```bash title="Shell"
 curl -X DELETE -H "Authorization: token OAUTH-TOKEN" \
-https://kovan.interrep.link/api/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554
+https://kovan.interep.link/api/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554
 ```
 
 ```json title="Response"
@@ -134,7 +134,7 @@ https://kovan.interrep.link/api/groups/github/gold/53896249589165548557454026999
 **GET** - Returns a Merkle tree proof.
 
 ```bash title="Shell"
-curl https://kovan.interrep.link/api/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554/proof
+curl https://kovan.interep.link/api/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554/proof
 ```
 
 ```json title="Response"
@@ -173,7 +173,7 @@ Merkle trees are used as a data structure for groups. Each group has a tree, whi
 **GET** - Returns the leaves of a tree.
 
 ```bash title="Shell"
-curl https://kovan.interrep.link/api/trees/3539596833905557328479676245499052267688962849195984401151716846778908697643?limit=2
+curl https://kovan.interep.link/api/trees/3539596833905557328479676245499052267688962849195984401151716846778908697643?limit=2
 ```
 
 ```json title="Response"
@@ -185,7 +185,7 @@ curl https://kovan.interrep.link/api/trees/3539596833905557328479676245499052267
 **GET** - Returns true if a leaf belongs to a tree.
 
 ```bash title="Shell"
-curl https://kovan.interrep.link/api/trees/3539596833905557328479676245499052267688962849195984401151716846778908697643/15227719113467049976699670018631375748328892669189551254396131971022633202277
+curl https://kovan.interep.link/api/trees/3539596833905557328479676245499052267688962849195984401151716846778908697643/15227719113467049976699670018631375748328892669189551254396131971022633202277
 ```
 
 ```json title="Response"
@@ -197,7 +197,7 @@ curl https://kovan.interrep.link/api/trees/3539596833905557328479676245499052267
 **GET** - Returns all the root batches.
 
 ```bash title="Shell"
-curl https://kovan.interrep.link/api/trees/batches
+curl https://kovan.interep.link/api/trees/batches
 ```
 
 ```json title="Response"
@@ -231,7 +231,7 @@ curl https://kovan.interrep.link/api/trees/batches
 **GET** - Returns the batch to which a root hash belongs.
 
 ```bash title="Shell"
-curl https://kovan.interrep.link/api/trees/batches/3539596833905557328479676245499052267688962849195984401151716846778908697643
+curl https://kovan.interep.link/api/trees/batches/3539596833905557328479676245499052267688962849195984401151716846778908697643
 ```
 
 ```json title="Response"
