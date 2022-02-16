@@ -81,7 +81,7 @@ module.exports = {
                             },
                             {
                                 label: "Telegram",
-                                href: "https://t.me/interep"
+                                href: "https://t.me/interrep"
                             }
                         ]
                     },
