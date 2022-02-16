@@ -6,16 +6,16 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/interep" target="_blank">
+    <a href="https://github.com/interep-project" target="_blank">
         <img src="https://img.shields.io/badge/project-Interep-blue.svg?style=flat-square">
     </a>
-    <a href="https://github.com/interep/docs/blob/main/LICENSE" target="_blank">
-        <img alt="Github license" src="https://img.shields.io/github/license/interep/docs.svg?style=flat-square">
+    <a href="https://github.com/interep-project/docs/blob/main/LICENSE" target="_blank">
+        <img alt="Github license" src="https://img.shields.io/github/license/interep-project/docs.svg?style=flat-square">
     </a>
     <a href="https://prettier.io/" target="_blank">
         <img alt="Code style prettier" src="https://img.shields.io/badge/code%20style-prettier-f8bc45?style=flat-square&logo=prettier">
     </a>
-    <img alt="Repository top language" src="https://img.shields.io/github/languages/top/interep/docs?style=flat-square">
+    <img alt="Repository top language" src="https://img.shields.io/github/languages/top/interep-project/docs?style=flat-square">
 </p>
 
 <div align="center">

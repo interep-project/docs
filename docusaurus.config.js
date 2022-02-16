@@ -10,7 +10,7 @@ module.exports = {
     favicon: "/img/favicon.ico",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
-    organizationName: "interep",
+    organizationName: "interep-project",
     projectName: "docs",
     trailingSlash: false,
 
@@ -38,7 +38,7 @@ module.exports = {
                 title: "Interep",
                 items: [
                     {
-                        href: "https://github.com/interep",
+                        href: "https://github.com/interep-project",
                         label: "GitHub",
                         position: "right"
                     }
@@ -94,7 +94,7 @@ module.exports = {
                             },
                             {
                                 label: "GitHub",
-                                href: "https://github.com/interep"
+                                href: "https://github.com/interep-project"
                             }
                         ]
                     }
