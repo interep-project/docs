@@ -6,7 +6,7 @@ slug: /
 # Introduction
 
 :::caution
-This documentation refers to the latest version of Interep ([kovan.interep.link](https://kovan.interep.link)), which is still at an early stage. The production environment ([interep.link](https://interep.link)) still refers to the old MVP version and it will be updated soon.
+This documentation refers to the latest version of Interep ([kovan.interep.link](https://kovan.interep.link)), which is still at an early stage.
 :::
 
 ## Overview
@@ -17,7 +17,7 @@ Reputation is key to building trust in a system and it can often be used as a gu
 
 Giving people the opportunity to export their reputation across platforms (e.g. social networks) without exposing their personal data would expand the compounding benefits of trusted human interactions across the web, while making it much more difficult to create fake accounts.
 
-Interep provides special groups that can be used by DApps or services to verify users' reputations without exposing their identities. Users can join these groups based on the existing memberships they have on external groups (e.g. Telegram groups), or through their social media reputations (e.g Twitter groups), or via other specific user properties. InterRep only checks if the users met the criteria to join the groups, without storing any sensitive data. In order to join groups each user must create a unique identifier using an Ethereum account and Semaphore. Semaphore, then, allows users to prove that their identifier is part of a specific group.
+Interep provides special groups that can be used by DApps or services to verify users' reputations without exposing their identities. Users can join these groups based on the existing memberships they have on external groups (e.g. Telegram groups), or through their social media reputations (e.g Twitter groups), or via other specific user properties. Interep only checks if the users met the criteria to join the groups, without storing any sensitive data. In order to join groups each user must create a unique identifier using an Ethereum account and Semaphore. Semaphore, then, allows users to prove that their identifier is part of a specific group.
 
 :::info
 [Semaphore](https://semaphore.appliedzkp.org/) is a zero-knowledge gadget which allows Ethereum users to prove their membership of a set which they had previously joined without revealing their original identity.

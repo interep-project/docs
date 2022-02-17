@@ -71,4 +71,4 @@
 
 ---
 
-#### Configuration file: [src/criteria/twitter.ts](https://github.com/InterRep/interep.js/blob/main/packages/reputation/src/criteria/twitter.ts)
+#### Configuration file: [src/criteria/twitter.ts](https://github.com/Interep/interep.js/blob/main/packages/reputation/src/criteria/twitter.ts)

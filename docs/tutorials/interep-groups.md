@@ -22,7 +22,7 @@ If you want to integrate the whole onboarding flow into your UI, follow all the 
 
 ## 1. Generate a OAuth token
 
-If you want to allow a user to join a group directly from your app without going through the Interep app, you will need to create a OAuth authentication system to generate a valid access token in order to calculate the users' reputation and to add their identity commitment to a InterRep group. You can get the list of our supported providers with our [`@interep/api`](https://github.com/InterRep/interep.js/tree/main/packages/api) package.
+If you want to allow a user to join a group directly from your app without going through the Interep app, you will need to create a OAuth authentication system to generate a valid access token in order to calculate the users' reputation and to add their identity commitment to a Interep group. You can get the list of our supported providers with our [`@interep/api`](https://github.com/Interep/interep.js/tree/main/packages/api) package.
 
 ```typescript
 import { API } from "@interep/api"
@@ -58,7 +58,7 @@ console.log(reputation) // gold
 
 ## 3. Create the identity commitment
 
-Creating an Semaphore identity commitment is quite simple. Interep provides an [`@interep/identity`](https://github.com/InterRep/interep.js/tree/main/packages/identity) package to create a Semaphore identity ([`@libsem/identity`](https://github.com/appliedzkp/libsemaphore/tree/master/packages/identity)). You will also need [Metamask](https://metamask.io/) and [Ethers.js](https://github.com/ethers-io/ethers.js/) (or [Web3.js](https://github.com/ChainSafe/web3.js)) to sign the InterRep message. If you want to see how `@interep/identity` works you can try our [demo](https://js.interep.link/identity/).
+Creating an Semaphore identity commitment is quite simple. Interep provides an [`@interep/identity`](https://github.com/Interep/interep.js/tree/main/packages/identity) package to create a Semaphore identity ([`@libsem/identity`](https://github.com/appliedzkp/libsemaphore/tree/master/packages/identity)). You will also need [Metamask](https://metamask.io/) and [Ethers.js](https://github.com/ethers-io/ethers.js/) (or [Web3.js](https://github.com/ChainSafe/web3.js)) to sign the Interep message. If you want to see how `@interep/identity` works you can try our [demo](https://js.interep.link/identity/).
 
 ```typescript
 import createIdentity from "@interep/identity"

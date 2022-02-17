@@ -6,11 +6,11 @@ sidebar_position: 5
 
 ### Providers
 
-Providers are the services that allow InterRep to obtain identities that meet certain criteria (e.g. group membership, social reputation, or ownership of tokens or emails).
+Providers are the services that allow Interep to obtain identities that meet certain criteria (e.g. group membership, social reputation, or ownership of tokens or emails).
 
 #### `/api/providers`
 
-**GET** - Returns all the InterRep supported providers.
+**GET** - Returns all the Interep supported providers.
 
 ```bash title="Shell"
 curl https://kovan.interep.link/api/providers
@@ -38,7 +38,7 @@ Groups contain the identity commitments of users who decide to join them. You ca
 
 #### `/api/groups`
 
-**GET** - Returns all the InterRep groups.
+**GET** - Returns all the Interep groups.
 
 ```bash title="Shell"
 curl https://kovan.interep.link/api/groups
@@ -78,7 +78,7 @@ curl https://kovan.interep.link/api/groups
 
 #### `/api/groups/:provider/:name`
 
-**GET** - Returns a specific InterRep group.
+**GET** - Returns a specific Interep group.
 
 ```bash title="Shell"
 curl https://kovan.interep.link/api/groups/github/gold

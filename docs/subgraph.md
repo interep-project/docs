@@ -6,7 +6,7 @@ sidebar_position: 6
 
 The Graph is an indexing protocol for querying networks like Ethereum and IPFS. Anyone can build and publish open APIs, called subgraphs, making data easily accessible.
 
-The onchain InterRep groups and their members can be queried using GraphQL queries with our subgraph, available at https://thegraph.com/hosted-service/subgraph/interep/kovan. In addition to the onchain groups, it is also possible to query our offchain groups. However, they do not contain all their group members but only the Merkle tree roots added at regular intervals.
+The onchain Interep groups and their members can be queried using GraphQL queries with our subgraph, available at https://thegraph.com/hosted-service/subgraph/interep/kovan. In addition to the onchain groups, it is also possible to query our offchain groups. However, they do not contain all their group members but only the Merkle tree roots added at regular intervals.
 
 You can use various GraphQL [client libraries](https://thegraph.com/docs/developer/querying-from-your-app) to query the subgraph and populate your app with the data indexed by the subgraph.
 
