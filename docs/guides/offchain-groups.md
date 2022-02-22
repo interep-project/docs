@@ -1,10 +1,10 @@
 ---
-title: Interep groups
+title: Offchain groups
 ---
 
-# Using Interep groups
+# Using offchain groups
 
-In this section, we will learn how to integrate our Interep groups in your application.
+In this section, we will learn how to integrate our Interep offchain groups in your application.
 
 Interep allows users to join groups anonymously, so that these groups can then be used by DApps and external services to allow, for example, only certain categories of users to authenticate or to unlock certain features based on the user's group. Each group has a certain provider and a name (which coincides with the reputation when there is a OAuth provider). A user with a gold reputation on Twitter can, for example, join the relevant group and access another application by proving that they are part of the group and therefore have a gold reputation.
 
