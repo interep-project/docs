@@ -26,4 +26,4 @@ Interep provides special groups that can be used by DApps or services to verify 
 
 ## Getting started
 
-Interep consists of several components. If you want to learn more about the way it works, go to our [technical overview](/technical-overview/intro). If you have an application or a service that needs a system to prevent sybil attacks or to verify the authenticity of users, read our [tutorial](/tutorials/interep-groups) on how to integrate our groups.
+Interep consists of several components. If you want to learn more about the way it works, go to our [technical overview](/technical-reference/intro). If you have an application or a service that needs a system to prevent sybil attacks or to verify the authenticity of users, read our guides on how to integrate our groups.

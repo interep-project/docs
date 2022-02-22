@@ -51,12 +51,12 @@ module.exports = {
                         title: "Docs",
                         items: [
                             {
-                                label: "Introduction",
+                                label: "What Is Interep?",
                                 to: "/"
                             },
                             {
-                                label: "Technical overview",
-                                to: "/technical-overview/intro"
+                                label: "Technical Reference",
+                                to: "/technical-reference/intro"
                             },
                             {
                                 label: "API",
