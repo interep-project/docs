@@ -1,10 +1,7 @@
-const lightCodeTheme = require("prism-react-renderer/themes/github")
-const darkCodeTheme = require("prism-react-renderer/themes/palenight")
-
 // With JSDoc @type annotations, IDEs can provide config autocompletion
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-    title: "Interep Documentation",
+    title: "Interep",
     url: "https://docs.interep.link",
     baseUrl: "/",
     favicon: "/img/favicon.ico",
@@ -25,7 +22,8 @@ module.exports = {
                     routeBasePath: "/"
                 },
                 theme: {
-                    customCss: require.resolve("./src/css/custom.css")
+                    customCss: require.resolve("./src/css/custom.css"),
+                    customCss2: require.resolve("./src/css/colors.css")
                 }
             })
         ]
@@ -34,18 +32,21 @@ module.exports = {
     themeConfig:
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
+            prism: {
+                additionalLanguages: ["solidity"]
+            },
             navbar: {
                 title: "Interep",
                 items: [
                     {
-                        href: "https://github.com/interep-project",
                         label: "GitHub",
-                        position: "right"
+                        href: "https://github.com/interep-project",
+                        position: "right",
+                        className: "persistent"
                     }
                 ]
             },
             footer: {
-                style: "dark",
                 links: [
                     {
                         title: "Docs",
@@ -89,21 +90,31 @@ module.exports = {
                         title: "More",
                         items: [
                             {
-                                label: "App",
+                                label: "Interep App",
                                 href: "https://kovan.interep.link"
                             },
                             {
-                                label: "GitHub",
-                                href: "https://github.com/interep-project"
+                                label: "Semaphore",
+                                href: "https://semaphore.appliedzkp.org/"
                             }
                         ]
                     }
                 ],
                 copyright: `Copyright © 2021 Interep`
             },
-            prism: {
-                theme: lightCodeTheme,
-                darkTheme: darkCodeTheme
+            colorMode: {
+                defaultMode: "dark",
+                // Should we use the prefers-color-scheme media-query,
+                // using user system preferences, instead of the hardcoded defaultMode
+                respectPrefersColorScheme: true,
+                // Dark/light switch icon options
+                switchConfig: {
+                    // Icon for the switch while in dark mode
+                    darkIcon: "\u{263D}",
+                    // Unicode icons such as '\u2600' will work
+                    // Unicode with 5 chars require brackets: '\u{1F602}'
+                    lightIcon: "\u{263C}"
+                }
             }
         })
 }
