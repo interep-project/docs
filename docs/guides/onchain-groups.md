@@ -1,4 +1,5 @@
 ---
+sidebar_position: 2
 title: Onchain groups
 ---
 
@@ -26,7 +27,7 @@ import { utils, Contract, providers, Wallet } from "ethers"
 
 const contract = new Contract("<interep-contract-address>", Interep.abi)
 const provider = new providers.JsonRpcProvider("https://kovan.infura.io/v3/<infura-api-key>")
-const adminWallet = Wallet.fromMnemonic("<admin-mnemonic>")
+const adminWallet = Wallet.fromMnemonic("<admin-mnemonic>").connect(provider)
 
 const groupId = utils.formatBytes32String("<app-name>")
 const treeDepth = 20
@@ -54,9 +55,7 @@ const ethereumProvider = await detectEthereumProvider()
 const provider = new ethers.providers.Web3Provider(ethereumProvider)
 const signer = provider.getSigner()
 
-function sign(message: string): Promise<string> {
-    return signer.signMessage(message)
-}
+const sign = (message) => signer.signMessage(message)
 
 const identity = await createIdentity(sign, "<app-name>")
 const identityCommitment = identity.genIdentityCommitment().toString()
