@@ -28,6 +28,7 @@ If you don't know GraphQL, you can try running some queries using the Graph Expl
 -   `id`: unique identifier among all onchain group entities,
 -   `depth`: depth of the Merkle tree used for the group,
 -   `size`: number of members (or number of tree leaves),
+-   `admin`: admin of the group,
 -   `members`: list of members of the group.
 
 #### Member
@@ -53,6 +54,7 @@ If you don't know GraphQL, you can try running some queries using the Graph Expl
     onchainGroups(first: 10) {
         id
         depth
+        admin
         members {
             identityCommitment
             index
