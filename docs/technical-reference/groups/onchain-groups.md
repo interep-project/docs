@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # Onchain groups
 
-In addition to the providers described above Interep allows you to create fully onchain managed groups. Root hashes are computed with an incremental Merkle tree onchain, while identity commitments can be accessed with events (i.e. Ethereum logs). Interep also provides a [subgraph](/subgraph) where data about onchain groups and their members can be accessed.
+In addition to the providers described above Interep allows you to create fully onchain managed groups. Root hashes are computed with an incremental Merkle tree onchain, while identity commitments can be accessed with events (i.e. Ethereum logs). Interep also provides a [subgraph](/api/#subgraph) where data about onchain groups and their members can be accessed.
 
 Onchain groups clearly provide an additional level of integrity, as they are fully decentralized. However, the criteria by which group members are added are in this case not defined and managed by Interep, but by external group admins.
 

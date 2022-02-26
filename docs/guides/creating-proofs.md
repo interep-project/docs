@@ -42,7 +42,7 @@ const identityCommitment = identity.genIdentityCommitment().toString()
 
 ## Merkle proof
 
-A Merkle proof is needed to generate a valid Semaphore proof. Since each Interep group is actually a Merkle tree where leaves correspond to user identity commitments, it will be sufficient to use the [Interep API](/api) in case of an offchain group, or the [Interep subgraph](/subgraph) in case the group is onchain.
+A Merkle proof is needed to generate a valid Semaphore proof. Since each Interep group is actually a Merkle tree where leaves correspond to user identity commitments, it will be sufficient to use our [Interep API](/api).
 
 ### Offchain groups
 

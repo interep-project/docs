@@ -4,9 +4,15 @@ sidebar_position: 5
 
 # API
 
+Interep provides HTTP endpoints to interact with our reputation service and HTTP/WS endpoints to access onchain data with our subgraph.
+
+## Reputation service
+
+Interep servers manage offchain groups and provide APIs to get data about supported groups and associated Merkle trees.
+
 ### Providers
 
-Providers are the services that allow Interep to obtain identities that meet certain criteria (e.g. group membership, social reputation, or ownership of tokens or emails).
+Providers are the services that allow Interep to get identities that meet certain criteria (e.g. group membership, social reputation, or ownership of tokens or emails).
 
 #### `/api/providers`
 
@@ -34,7 +40,7 @@ curl https://kovan.interep.link/api/providers/github/538962495891655485574540269
 
 ### Groups
 
-Groups contain the identity commitments of users who decide to join them. You can add or delete an identity commitment from a group, and each group has a size (i.e. the number of active identity commitments) and the root hash of the group tree.
+Groups contain the identity commitments of users who decide to join them. Each group has a size (i.e. the number of active identity commitments) and the root hash of the group tree. You can add or remove identity commitments and get specific data for each group.
 
 #### `/api/groups`
 
@@ -250,6 +256,100 @@ curl https://kovan.interep.link/api/trees/batches/353959683390555732847967624549
         "transaction": {
             "hash": "0xd1890bb9bda0adc650aefe974ccfe26665fe471c8a9f5306591bcc0c71088ced",
             "blockNumber": 11
+        }
+    }
+}
+```
+
+## Subgraph
+
+The Graph is an indexing protocol for querying networks like Ethereum and IPFS. Anyone can build and publish open APIs, called subgraphs, making data easily accessible. You can use various GraphQL [client libraries](https://thegraph.com/docs/developer/querying-from-your-app) to query the subgraph and populate your app with the data indexed by the subgraph.
+
+Our [Interep subgraph](https://thegraph.com/hosted-service/subgraph/interep-project/interep-groups-kovan) allow you to get data from the [Interep smart contract](https://github.com/interep-group/contracts).
+
+
+
+:::tip
+If you don't know GraphQL, you can try running some queries using the Graph Explorer and its [GraphQL playground](https://thegraph.com/hosted-service/subgraph/interep-project/interep-groups-kovan?selected=playground). You can find some examples [here](https://thegraph.com/docs/developer/graphql-api).
+:::
+
+### Endpoints
+
+-   **Queries** (HTTP): https://api.thegraph.com/subgraphs/name/interep-project/interep-groups-kovan
+-   **Subscriptions** (WS): wss://api.thegraph.com/subgraphs/name/interep-project/interep-groups-kovan
+
+### Schema
+
+### Entities
+
+##### OnchainGroup
+
+-   `id`: unique identifier among all onchain group entities,
+-   `depth`: depth of the Merkle tree used for the group,
+-   `size`: number of members (or number of tree leaves),
+-   `admin`: admin of the group,
+-   `members`: list of members of the group.
+
+##### Member
+
+-   `id`: unique identifier among all member entities,
+-   `identityCommitment`: Semaphore identity commitment,
+-   `root`: root hash of the tree when adding this member,
+-   `index`: index of the tree leaf,
+-   `group`: link to the onchain group entity.
+
+##### OffchainGroup
+
+-   `id`: unique identifier among all offchain group entities,
+-   `depth`: depth of the merkle tree used for the group,
+-   `root`: root hash of the tree used for the group,
+
+### Example Queries
+
+#### All members for the first 10 onchain groups
+
+```graphql
+{
+    onchainGroups(first: 10) {
+        id
+        depth
+        admin
+        members {
+            identityCommitment
+            index
+        }
+    }
+}
+```
+
+#### Sample of onchain members
+
+```graphql
+{
+    members(first: 5) {
+        identityCommitment
+        root
+        index
+        group {
+            id
+        }
+    }
+}
+```
+
+#### Onchain groups by identity commitment
+
+It can be useful when you want all groups of a certain provider to which a user belongs.
+
+```graphql
+{
+    members(
+        where: { identityCommitment: "2066509069781532083082870363092240900543210735798842041673598797369005529920" }
+    ) {
+        onchainGroups {
+            id
+            depth
+            size
         }
     }
 }
