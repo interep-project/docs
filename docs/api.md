@@ -56,25 +56,29 @@ curl https://kovan.interep.link/api/groups
         {
             "provider": "twitter",
             "name": "gold",
-            "rootHash": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
+            "root": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
+            "numberOfLeaves": 0,
             "size": 0
         },
         {
             "provider": "poap",
             "name": "devcon5",
-            "rootHash": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
+            "root": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
+            "numberOfLeaves": 0,
             "size": 0
         },
         {
             "provider": "telegram",
             "name": "-1001396261340",
-            "rootHash": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
+            "root": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
+            "numberOfLeaves": 0,
             "size": 0
         },
         {
             "provider": "email",
             "name": "hotmail",
-            "rootHash": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
+            "root": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
+            "numberOfLeaves": 0,
             "size": 0
         },
         ...
@@ -95,7 +99,8 @@ curl https://kovan.interep.link/api/groups/github/gold
     "data": {
         "provider": "github",
         "name": "gold",
-        "rootHash": "3539596833905557328479676245499052267688962849195984401151716846778908697643",
+        "root": "3539596833905557328479676245499052267688962849195984401151716846778908697643",
+        "numberOfLeaves": 1,
         "size": 1
     }
 }
@@ -179,7 +184,7 @@ curl https://kovan.interep.link/api/groups/github/gold/6014393454173820032764441
 
 Merkle trees are used as a data structure for groups. Each group has a tree, which is created when the first identity commitment is added. Identity commitments are therefore the leaves of the Merkle trees.
 
-#### `/api/trees/:rootHash`
+#### `/api/trees/:root`
 
 **GET** - Returns the leaves of a tree.
 
@@ -191,7 +196,7 @@ curl https://kovan.interep.link/api/trees/35395968339055573284796762454990522676
 { "data": ["0", "15227719113467049976699670018631375748328892669189551254396131971022633202277"] }
 ```
 
-#### `/api/trees/:rootHash/:leafHash`
+#### `/api/trees/:root/:leaf`
 
 **GET** - Returns true if a leaf belongs to a tree.
 
@@ -216,7 +221,7 @@ curl https://kovan.interep.link/api/trees/batches
     "data": [
         {
             "group": { "provider": "github", "name": "gold" },
-            "rootHashes": ["14273848199791178467311820318933280591305571798471599149384455313172966875782"],
+            "roots": ["14273848199791178467311820318933280591305571798471599149384455313172966875782"],
             "transaction": {
                 "hash": "0x1dec16b1c76a0a1fc9b4c7c898ae0ba72f496868fb7d2fe447fefe5eeaf676c1",
                 "blockNumber": 10
@@ -224,7 +229,7 @@ curl https://kovan.interep.link/api/trees/batches
         },
         {
             "group": { "provider": "github", "name": "gold" },
-            "rootHashes": [
+            "roots": [
                 "19217088683336594659449020493828377907203207941212636669271704950158751593251",
                 "3539596833905557328479676245499052267688962849195984401151716846778908697643"
             ],
@@ -237,7 +242,7 @@ curl https://kovan.interep.link/api/trees/batches
 }
 ```
 
-#### `/api/trees/batches/:rootHash`
+#### `/api/trees/batches/:root`
 
 **GET** - Returns the batch to which a root hash belongs.
 
@@ -249,7 +254,7 @@ curl https://kovan.interep.link/api/trees/batches/353959683390555732847967624549
 {
     "data": {
         "group": { "provider": "github", "name": "gold" },
-        "rootHashes": [
+        "roots": [
             "19217088683336594659449020493828377907203207941212636669271704950158751593251",
             "3539596833905557328479676245499052267688962849195984401151716846778908697643"
         ],
@@ -266,8 +271,6 @@ curl https://kovan.interep.link/api/trees/batches/353959683390555732847967624549
 The Graph is an indexing protocol for querying networks like Ethereum and IPFS. Anyone can build and publish open APIs, called subgraphs, making data easily accessible. You can use various GraphQL [client libraries](https://thegraph.com/docs/developer/querying-from-your-app) to query the subgraph and populate your app with the data indexed by the subgraph.
 
 Our [Interep subgraph](https://thegraph.com/hosted-service/subgraph/interep-project/interep-groups-kovan) allow you to get data from the [Interep smart contract](https://github.com/interep-group/contracts).
-
-
 
 :::tip
 If you don't know GraphQL, you can try running some queries using the Graph Explorer and its [GraphQL playground](https://thegraph.com/hosted-service/subgraph/interep-project/interep-groups-kovan?selected=playground). You can find some examples [here](https://thegraph.com/docs/developer/graphql-api).
