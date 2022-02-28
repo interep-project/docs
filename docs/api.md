@@ -289,7 +289,9 @@ If you don't know GraphQL, you can try running some queries using the Graph Expl
 
 -   `id`: unique identifier among all onchain group entities,
 -   `depth`: depth of the Merkle tree used for the group,
--   `size`: number of members (or number of tree leaves),
+-   `root`: last root hash of the Merkle tree,
+-   `size`: number of active members (or non-zero tree leaves),
+-   `numberOfLeaves`: total number of tree leaves,
 -   `admin`: admin of the group,
 -   `members`: list of members of the group.
 
@@ -297,7 +299,6 @@ If you don't know GraphQL, you can try running some queries using the Graph Expl
 
 -   `id`: unique identifier among all member entities,
 -   `identityCommitment`: Semaphore identity commitment,
--   `root`: root hash of the tree when adding this member,
 -   `index`: index of the tree leaf,
 -   `group`: link to the onchain group entity.
 
