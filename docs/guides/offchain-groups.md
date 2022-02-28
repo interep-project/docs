@@ -78,14 +78,14 @@ const identity = await createIdentity(sign, "github")
 const identityCommitment = identity.genIdentityCommitment().toString()
 ```
 
-## Add the identity commitment to a group
+## Add a member to a group
 
-To add an identity commitment to a group you need a OAuth token if there is a OAuth provider or the signature of the identity commitment and the Ethereum account address if there is a Web3 provider.
+To add a new member to a group you need a OAuth token if there is a OAuth provider or the signature of the identity commitment and the Ethereum account address if there is a Web3 provider.
 
 The POST methods of our APIs are restricted to a list of domains defined in a whitelist. If you want to add your own domain please contact us or open a pull request. You can find the configuration file [here](https://github.com/Interep/reputation-service/blob/main/src/config.ts).
 
-```typescript title="Adding identity commitments to groups with reputation providers (e.g Github)."
-await api.addIdentityCommitment({
+```typescript title="Adding members to groups with reputation providers (e.g Github)."
+await api.addMember({
     provider: "github",
     name: reputation,
     identityCommitment,
@@ -104,7 +104,7 @@ const signer = provider.getSigner()
 const userSignature = await signer.signMessage(identityCommitment)
 const userAddress = await signer.getAddress()
 
-await api.addIdentityCommitment({
+await api.addMember({
     provider: "poap",
     name: "devcon4",
     identityCommitment,

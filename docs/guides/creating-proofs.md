@@ -36,75 +36,32 @@ const sign = (message) => signer.signMessage(message)
 
 // The second parameter can be on offchain provider or an onchain group id.
 const identity = await createIdentity(sign, "<provider-or-group-id>")
-// The identity commitment is necessary for the creation of a Merkle proof.
-const identityCommitment = identity.genIdentityCommitment().toString()
 ```
 
-## Merkle proof
+## Semaphore proof
 
-A Merkle proof is needed to generate a valid Semaphore proof. Since each Interep group is actually a Merkle tree where leaves correspond to user identity commitments, it will be sufficient to use our [Interep API](/api).
-
-### Offchain groups
-
-If the generated Semaphore identity refers to an offchain provider you can use the API of the Interep server. It will provide a Merkle proof ready to be used.
+Creating Semaphore proofs requires some static files, but in the future these files will be hosted on a server and made public. For now you can use the ones used in the [Semaphore repository](https://github.com/appliedzkp/semaphore/tree/main/build/snark) for testing.
 
 ```typescript
-// Merkle proof of a member of the 'gold' group of the Github provider.
-const response = await fetch(`https://kovan.interep.link/api//groups/github/gold/${identityCommitment}/proof`)
+import createProof from "@interep/proof"
 
-const { data: merkleProof } = await response.json()
-```
-
-### Onchain groups
-
-If the generated Semaphore identity refers to an onchain group you can use the Interep subgraph to get the identity commitments of that group and generate a Merkle proof.
-
-```typescript
-import { utils } from "ethers"
-import { generateMerkleProof } from "@zk-kit/protocols"
-
-const groupId = "<group-id>"
-const query = `{
-    members(where: { group: "${groupId}" }) {
-        identityCommitment
-    }
-}`
-
-const response = await fetch("https://api.thegraph.com/subgraphs/name/interep-project/interep-groups-kovan", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-        query
-    })
-})
-
-const { data } = await response.json()
-const identityCommitments = data.members.map((member) => member.identityCommitment).reverse()
-
-const zeroValue = utils.solidityKeccak256(["string"], ["Semaphore"])
-const merkleProof = generateMerkleProof(20, BigInt(zeroValue), 2, identityCommitments, identityCommitment)
-```
-
-## Semaphore proofs
-
-Creating Semaphore proofs requires some static files, in the future these files will be hosted on a server and made public. For now you can use the ones used in the [Semaphore repository](https://github.com/appliedzkp/semaphore/tree/main/build/snark) for testing.
-
-```typescript
-import { Semaphore } from "@zk-kit/protocols"
-
+const groupId = 1
 const signal = "Hello world"
 const externalNullifier = 1n
 
-const witness = Semaphore.genWitness(
-    identity.getTrapdoor(),
-    identity.getNullifier(),
-    merkleProof,
+const proof = createProof(
+    identity,
+    {
+        id: groupId // For onchain groups.
+        // Or 'provider' and 'name' for offchain groups.
+    },
     externalNullifier,
-    signal
+    signal,
+    {
+        wasm: "./semaphore.wasm"
+        zkey: "./semaphore_final.zkey"
+    }
 )
-
-const fullProof = await Semaphore.genProof(witness, "./semaphore.wasm", "./semaphore_final.zkey")
-const solidityProof = Semaphore.packToSolidityProof(fullProof)
 ```
 
 ## Onchain verifier
