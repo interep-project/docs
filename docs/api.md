@@ -56,6 +56,7 @@ curl https://kovan.interep.link/api/groups
         {
             "provider": "twitter",
             "name": "gold",
+            "depth": 20,
             "root": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
             "numberOfLeaves": 0,
             "size": 0
@@ -63,6 +64,7 @@ curl https://kovan.interep.link/api/groups
         {
             "provider": "poap",
             "name": "devcon5",
+            "depth": 20,
             "root": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
             "numberOfLeaves": 0,
             "size": 0
@@ -70,6 +72,7 @@ curl https://kovan.interep.link/api/groups
         {
             "provider": "telegram",
             "name": "-1001396261340",
+            "depth": 20,
             "root": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
             "numberOfLeaves": 0,
             "size": 0
@@ -77,6 +80,7 @@ curl https://kovan.interep.link/api/groups
         {
             "provider": "email",
             "name": "hotmail",
+            "depth": 20,
             "root": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
             "numberOfLeaves": 0,
             "size": 0
@@ -99,6 +103,7 @@ curl https://kovan.interep.link/api/groups/github/gold
     "data": {
         "provider": "github",
         "name": "gold",
+        "depth": 20,
         "root": "3539596833905557328479676245499052267688962849195984401151716846778908697643",
         "numberOfLeaves": 1,
         "size": 1
