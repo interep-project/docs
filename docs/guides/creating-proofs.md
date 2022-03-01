@@ -1,4 +1,5 @@
 ---
+sidebar_position: 3
 title: Semaphore proofs
 ---
 
@@ -6,7 +7,7 @@ title: Semaphore proofs
 
 If you've read the guides on how to use onchain or offchain groups you may now be wondering how you can allow users to create Semaphore proofs, and how to verify that these proofs are valid.
 
-In this section, we will learn how to get all the parameters for creating a Semaphore proof and how to use the Interep contract to correctly verify these proofs.
+In this section, we will learn how to get all the parameters for creating valid Semaphore proofs and how to use the Interep contract to correctly verify these proofs.
 
 :::caution
 Before going any further, if you are not familiar with Semaphore, read the [official documentation](https://semaphore.appliedzkp.org).
@@ -14,7 +15,7 @@ Before going any further, if you are not familiar with Semaphore, read the [offi
 
 ## Semaphore identity
 
-Since only a user belonging to an Interep group can create a valid proof, it is necessary for users to re-generate a Semaphore identity with Metamask.
+Since only a user belonging to an Interep group can create a valid proof, it is necessary for users to re-generate a Semaphore identity with [`@interep/identity`](https://github.com/interep-project/interep.js/tree/main/packages/identity).
 
 1. Get the Ethereum account signer from Metamask:
 
@@ -34,36 +35,77 @@ import createIdentity from "@interep/identity"
 
 const sign = (message) => signer.signMessage(message)
 
-// The second parameter can be on offchain provider or an onchain group id.
+// The second parameter can be an offchain provider or an onchain group id.
 const identity = await createIdentity(sign, "<provider-or-group-id>")
 ```
 
 ## Semaphore proof
 
-Creating Semaphore proofs requires some static files, but in the future these files will be hosted on a server and made public. For now you can use the ones used in the [Semaphore repository](https://github.com/appliedzkp/semaphore/tree/main/build/snark) for testing.
+Once users have generated their Semaphore identities, these can be used to create Semaphore proofs with [`@interep/proof`](https://github.com/interep-project/interep.js/tree/main/packages/proof).
+
+Creating Semaphore proofs also requires some zero-knowledge static files. In the future these files will be hosted on a server and made public, but for now you can use the ones used in the [Semaphore repository](https://github.com/appliedzkp/semaphore/tree/main/build/snark) for testing.
 
 ```typescript
 import createProof from "@interep/proof"
 
-const groupId = 1
-const signal = "Hello world"
-const externalNullifier = 1n
+const groupId = BigInt(formatBytes32String("<group-id>"))
+// const groupId = { provider: "<group-provider>", name: "<group-name>" } for offchain groups.
 
-const proof = createProof(
-    identity,
-    {
-        id: groupId // For onchain groups.
-        // Or 'provider' and 'name' for offchain groups.
-    },
-    externalNullifier,
-    signal,
-    {
-        wasm: "./semaphore.wasm"
-        zkey: "./semaphore_final.zkey"
-    }
-)
+const externalNullifier = 1
+const signal = "Hello World"
+
+const zkFiles = {
+    wasmFilePath: "./semaphore.wasm",
+    zkeyFilePath: "./semaphore_final.zkey"
+}
+
+const proof = await createProof(identity, groupId, externalNullifier, signal, zkFiles)
 ```
 
-## Onchain verifier
+## Onchain verification
 
-Finally, you can call your contract function, which will use Interep to verify that the proof is correct. You can pass the Interep [contract address](https://kovan.etherscan.io/address/0x06bcD633988c1CE7Bd134DbE2C12119b6f3E4bD1) from outside and use the [Solidity interface](https://github.com/interep-project/contracts/blob/main/contracts/interfaces/IInterep.sol) to call contract functions.
+Finally, you can verify Semaphore proofs and use anonymous user signals in your app.
+
+1. Check our supported networks and contract addresses in our [repository](https://github.com/interep-project/contracts) and create your contract:
+
+```solidity
+import "./IInterep.sol";
+
+contract MyContract {
+
+    IInterep interep;
+
+    constructor(address interepAddress) {
+        interep = IInterep(interepAddress);
+    }
+
+   function myFunction(
+        uint256 groupId,
+        string calldata signal,
+        uint256 nullifierHash,
+        uint256 externalNullifier,
+        uint256[8] calldata proof
+    ) public {
+        interep.verifyProof(groupId, signal, nullifierHash, externalNullifier, proof);
+
+        // Use the anonymous user signal here...
+    }
+}
+```
+
+1. Call your function passing Semaphore proofs:
+
+```typescript
+import Interep from "./Interep.json" // Interep contract interface.
+import { Contract, providers, Wallet } from "ethers"
+
+const contract = new Contract("<interep-contract-address>", Interep.abi)
+const provider = new providers.JsonRpcProvider("https://kovan.infura.io/v3/<infura-api-key>")
+const adminWallet = Wallet.fromMnemonic("<admin-mnemonic>").connect(provider)
+
+await contract.connect(adminWallet).myFunction(...proof)
+```
+
+:::info
+Check our available Interep [contract addresses](https://github.com/interep-project/contracts#deployed-contracts) and generate the Interep contract interface (ABI) running `yarn compile` in our [repository](https://github.com/interep-project/contracts).
+:::
