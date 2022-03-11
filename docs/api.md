@@ -8,30 +8,30 @@ Interep provides HTTP endpoints to interact with our reputation service and HTTP
 
 ## Reputation service
 
-Interep servers manage offchain groups and provide APIs to get data about supported groups and associated Merkle trees.
+Interep servers manage offchain groups and provide APIs to get data about supported groups and associated Merkle trees. 
 
 ### Providers
 
 Providers are the services that allow Interep to get identities that meet certain criteria (e.g. group membership, social reputation, or ownership of tokens or emails).
 
-#### `/api/providers`
+#### `/api/v1/providers`
 
 **GET** - Returns all the Interep supported providers.
 
 ```bash title="Shell"
-curl https://kovan.interep.link/api/providers
+curl https://kovan.interep.link/api/v1/providers
 ```
 
 ```json title="Response"
 { "data": ["twitter", "github", "reddit", "poap", "email", "telegram"] }
 ```
 
-#### `/api/providers/:provider/:identityCommitment`
+#### `/api/v1/providers/:provider/:member`
 
 **GET** - Returns true if an identity commitment belongs to any provider group.
 
 ```bash title="Shell"
-curl https://kovan.interep.link/api/providers/github/5389624958916554855745402699919973897274778066321592214684792070525465486554
+curl https://kovan.interep.link/api/v1/providers/github/5389624958916554855745402699919973897274778066321592214684792070525465486554
 ```
 
 ```json title="Response"
@@ -40,14 +40,14 @@ curl https://kovan.interep.link/api/providers/github/538962495891655485574540269
 
 ### Groups
 
-Groups contain the identity commitments of users who decide to join them. Each group has a size (i.e. the number of active identity commitments) and the root hash of the group tree. You can add or remove identity commitments and get specific data for each group.
+Groups contain the identity commitments of users who decide to join them (i.e members). Each group has a size (i.e. the number of active members) and the root hash of the group tree. You can add or remove members and get specific data for each group.
 
-#### `/api/groups`
+#### `/api/v1/groups`
 
 **GET** - Returns all the Interep groups.
 
 ```bash title="Shell"
-curl https://kovan.interep.link/api/groups
+curl https://kovan.interep.link/api/v1/groups
 ```
 
 ```json title="Response"
@@ -90,12 +90,12 @@ curl https://kovan.interep.link/api/groups
 }
 ```
 
-#### `/api/groups/:provider/:name`
+#### `/api/v1/groups/:provider/:name`
 
 **GET** - Returns a specific Interep group.
 
 ```bash title="Shell"
-curl https://kovan.interep.link/api/groups/github/gold
+curl https://kovan.interep.link/api/v1/groups/github/gold
 ```
 
 ```json title="Response"
@@ -111,46 +111,46 @@ curl https://kovan.interep.link/api/groups/github/gold
 }
 ```
 
-#### `/api/groups/:provider/:name/:identityCommitment`
+#### `/api/v1/groups/:provider/:name/:member`
 
 **GET** - Returns true if an identity commitment belongs to a group.
 
 ```bash title="Shell"
-curl https://kovan.interep.link/api/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554
+curl https://kovan.interep.link/api/v1/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554
 ```
 
 ```json title="Response"
 { "data": true }
 ```
 
-**POST** - Adds an identity commitment to a group and return true (for OAuth groups only). Your domain must be whitelisted to use this API.
+**POST** - Adds a member to a group and return true (for OAuth groups only). Your domain must be whitelisted to use this API.
 
 ```bash title="Shell"
 curl -X POST -H "Authorization: token OAUTH-TOKEN" \
-https://kovan.interep.link/api/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554
+https://kovan.interep.link/api/v1/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554
 ```
 
 ```json title="Response"
 { "data": true }
 ```
 
-**DELETE** - Deletes an identity commitment from a group and return true (for OAuth groups only). Your domain must be whitelisted to use this API.
+**DELETE** - Removes a member from a group and return true (for OAuth groups only). Your domain must be whitelisted to use this API.
 
 ```bash title="Shell"
 curl -X DELETE -H "Authorization: token OAUTH-TOKEN" \
-https://kovan.interep.link/api/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554
+https://kovan.interep.link/api/v1/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554
 ```
 
 ```json title="Response"
 { "data": true }
 ```
 
-#### `/api/groups/:provider/:name/:identityCommitment/proof`
+#### `/api/v1/groups/:provider/:name/:member/proof`
 
 **GET** - Returns a Merkle tree proof.
 
 ```bash title="Shell"
-curl https://kovan.interep.link/api/groups/github/gold/6014393454173820032764441533619576647480292883965697181546606218195926726207/proof
+curl https://kovan.interep.link/api/v1/groups/github/gold/6014393454173820032764441533619576647480292883965697181546606218195926726207/proof
 ```
 
 ```json title="Response"
@@ -185,40 +185,16 @@ curl https://kovan.interep.link/api/groups/github/gold/6014393454173820032764441
 }
 ```
 
-### Trees
+### Batches
 
-Merkle trees are used as a data structure for groups. Each group has a tree, which is created when the first identity commitment is added. Identity commitments are therefore the leaves of the Merkle trees.
+Merkle trees are used as a data structure for groups. Each group has a tree, which is created when the first member is added. Members, or identity commitments, are therefore the leaves of the Merkle trees and to ensure the integrity of these offchain trees, their root hashes are saved at regular intervals. The batches contain the intermediate roots.
 
-#### `/api/trees/:root`
-
-**GET** - Returns the leaves of a tree.
-
-```bash title="Shell"
-curl https://kovan.interep.link/api/trees/3539596833905557328479676245499052267688962849195984401151716846778908697643?limit=2
-```
-
-```json title="Response"
-{ "data": ["0", "15227719113467049976699670018631375748328892669189551254396131971022633202277"] }
-```
-
-#### `/api/trees/:root/:leaf`
-
-**GET** - Returns true if a leaf belongs to a tree.
-
-```bash title="Shell"
-curl https://kovan.interep.link/api/trees/3539596833905557328479676245499052267688962849195984401151716846778908697643/15227719113467049976699670018631375748328892669189551254396131971022633202277
-```
-
-```json title="Response"
-{ "data": true }
-```
-
-#### `/api/trees/batches`
+#### `/api/v1/batches`
 
 **GET** - Returns all the root batches.
 
 ```bash title="Shell"
-curl https://kovan.interep.link/api/trees/batches
+curl https://kovan.interep.link/api/v1/batches
 ```
 
 ```json title="Response"
@@ -247,12 +223,12 @@ curl https://kovan.interep.link/api/trees/batches
 }
 ```
 
-#### `/api/trees/batches/:root`
+#### `/api/v1/batches/:root`
 
 **GET** - Returns the batch to which a root hash belongs.
 
 ```bash title="Shell"
-curl https://kovan.interep.link/api/trees/batches/3539596833905557328479676245499052267688962849195984401151716846778908697643
+curl https://kovan.interep.link/api/v1/batches/3539596833905557328479676245499052267688962849195984401151716846778908697643
 ```
 
 ```json title="Response"
