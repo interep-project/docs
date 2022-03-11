@@ -111,6 +111,31 @@ curl https://kovan.interep.link/api/v1/groups/github/gold
 }
 ```
 
+#### `/api/v1/groups/:provider/:name?members=true&limit=0&offset=0`
+
+**GET** - Returns a specific Interep group with its members.
+
+```bash title="Shell"
+curl https://kovan.interep.link/api/v1/groups/github/gold?members=true&limit=0&offset=0
+```
+
+```json title="Response"
+{
+    "data": {
+        "provider": "github",
+        "name": "gold",
+        "depth": 20,
+        "root": "11783102006236284948621664772636974806012062508040430280186082981899335591789",
+        "numberOfLeaves": 2,
+        "size": 2,
+        "members": [
+            "6014393454173820032764441533619576647480292883965697181546606218195926726207",
+            "21605618534090961454558107749130073320045509650908077266704421832011347336358"
+        ]
+    }
+}
+```
+
 #### `/api/v1/groups/:provider/:name/:member`
 
 **GET** - Returns true if an identity commitment belongs to a group.
