@@ -59,7 +59,7 @@ const zkFiles = {
     zkeyFilePath: "./semaphore_final.zkey"
 }
 
-const proof = await createProof(identity, groupId, externalNullifier, signal, zkFiles)
+const { publicSignals, solidityProof } = await createProof(identity, groupId, externalNullifier, signal, zkFiles)
 ```
 
 ## Onchain verification
@@ -103,7 +103,9 @@ const contract = new Contract("<interep-contract-address>", Interep.abi)
 const provider = new providers.JsonRpcProvider("https://kovan.infura.io/v3/<infura-api-key>")
 const adminWallet = Wallet.fromMnemonic("<admin-mnemonic>").connect(provider)
 
-await contract.connect(adminWallet).myFunction(...proof)
+await contract
+    .connect(adminWallet)
+    .myFunction(groupId, signal, publicSignals.nullifierHash, publicSignals.externalNullifier, solidityProof)
 ```
 
 :::info
