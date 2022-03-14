@@ -4,7 +4,11 @@ sidebar_position: 5
 
 # API
 
-Interep provides HTTP endpoints to interact with our reputation service and HTTP/WS endpoints to access onchain data with our subgraph.
+Interep provides HTTP endpoints to interact with the reputation service and HTTP/WS endpoints to access onchain data with a subgraph.
+
+:::tip
+If you want to use the Interep APIs with a JavaScript library you can also use [`@interep/api`](https://github.com/Interep-project/interep.js/tree/main/packages/api).
+:::
 
 ## Reputation service
 
