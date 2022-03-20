@@ -43,8 +43,8 @@ ___
 Clone this repository and install the dependencies:
 
 ```bash
-git clone https://github.com/interep/docs.git interep-docs
-cd interep-docs && yarn
+git clone https://github.com/interep-project/docs.git
+cd docs && yarn
 ```
 
 ## 📜 Usage

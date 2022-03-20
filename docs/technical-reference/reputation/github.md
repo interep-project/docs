@@ -71,4 +71,4 @@
 
 ---
 
-#### Configuration file: [src/criteria/github.ts](https://github.com/Interep/interep.js/blob/main/packages/reputation/src/criteria/github.ts)
+#### Configuration file: [src/criteria/github.ts](https://github.com/interep-project/interep.js/blob/main/packages/reputation/src/criteria/github.ts)

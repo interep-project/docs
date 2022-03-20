@@ -9,7 +9,7 @@ In addition to the providers described above Interep allows you to create fully 
 Onchain groups clearly provide an additional level of integrity, as they are fully decentralized. However, the criteria by which group members are added are in this case not defined and managed by Interep, but by external group admins.
 
 :::tip
-If you want to learn more about contracts you can explore the code [here](https://github.com/Interep/contracts/blob/main/contracts/Groups.sol). Any feedback is more than appreciated!
+If you want to learn more about contracts you can explore the code [here](https://github.com/interep-project/contracts/blob/main/contracts/Groups.sol). Any feedback is more than appreciated!
 :::
 
 ## Flow
@@ -25,5 +25,3 @@ If you want to learn more about contracts you can explore the code [here](https:
 ### 1. DAO groups
 
 A DAO can create an Interep onchain group to allow its members to anonymously prove that they are part of the organization in order to access external services.
-
-
