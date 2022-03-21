@@ -21,7 +21,7 @@ In the first phase Interep allows users to join groups with the web application 
 
 Group types are defined by identity providers, i.e. the services from which the information necessary to certify a certain reputation or certain properties is obtained. Whereas the users Ethereum account is used to sign a message with the identity provider and to generate a Semaphore identity.
 
-Interep uses the [@interep/identity](https://github.com/Interep/interep.js/tree/main/packages/identity) package to generate identities, while the [reputation-service](https://github.com/Interep/reputation-service) takes care of adding the identity commitments in the Merkle tree associated with the group.
+Interep uses the [@interep/identity](https://github.com/interep-project/interep.js/tree/main/packages/identity) package to generate identities, while the [reputation-service](https://github.com/interep-project/reputation-service) takes care of adding the identity commitments in the Merkle tree associated with the group.
 
 In addition to joining a group, users can later decide to leave it. In this case the Merkle tree leaf corresponding to identity commitment will be set to 0.
 

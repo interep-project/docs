@@ -18,7 +18,7 @@ module.exports = {
             ({
                 docs: {
                     sidebarPath: require.resolve("./sidebars.js"),
-                    editUrl: "https://github.com/interep/docs/edit/main/",
+                    editUrl: "https://github.com/interep-project/docs/edit/main/",
                     routeBasePath: "/"
                 },
                 theme: {
