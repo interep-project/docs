@@ -195,9 +195,37 @@ curl https://kovan.interep.link/api/v1/groups/github/gold/6014393454173820032764
 }
 ```
 
+### Trees
+
+Merkle trees are used as a data structure for groups. Each group has a tree, which is created when the first identity commitment is added. Members, or identity commitments, are therefore the leaves of the Merkle trees. You can access the same data as the `groups` APIs but using the last root of the Merkle trees.
+
+#### `/api/v1/trees/:root`
+
+**GET** - Returns the leaves of a tree.
+
+```bash title="Shell"
+curl https://kovan.interep.link/api/v1/trees/3539596833905557328479676245499052267688962849195984401151716846778908697643?limit=2
+```
+
+```json title="Response"
+{ "data": ["0", "15227719113467049976699670018631375748328892669189551254396131971022633202277"] }
+```
+
+#### `/api/v1/trees/:root/:leaf`
+
+**GET** - Returns true if a leaf belongs to a tree.
+
+```bash title="Shell"
+curl https://kovan.interep.link/api/v1/trees/3539596833905557328479676245499052267688962849195984401151716846778908697643/15227719113467049976699670018631375748328892669189551254396131971022633202277
+```
+
+```json title="Response"
+{ "data": true }
+```
+
 ### Batches
 
-Merkle trees are used as a data structure for groups. Each group has a tree, which is created when the first member is added. Members, or identity commitments, are therefore the leaves of the Merkle trees and to ensure the integrity of these offchain trees, their root hashes are saved at regular intervals. The batches contain the intermediate roots.
+To ensure the integrity of the Interep offchain trees, their root hashes are saved at regular intervals. The batches contain the intermediate roots.
 
 #### `/api/v1/batches`
 
