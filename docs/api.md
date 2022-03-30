@@ -12,7 +12,7 @@ If you want to use the Interep APIs with a JavaScript library you can also use [
 
 ## Reputation service
 
-Interep servers manage offchain groups and provide APIs to get data about supported groups and associated Merkle trees. 
+Interep servers manage offchain groups and provide APIs to get data about supported groups and associated Merkle trees.
 
 ### Providers
 
@@ -115,28 +115,20 @@ curl https://kovan.interep.link/api/v1/groups/github/gold
 }
 ```
 
-#### `/api/v1/groups/:provider/:name?members=true&limit=0&offset=0`
+#### `/api/v1/groups/:provider/:name/members?limit=0&offset=0`
 
-**GET** - Returns a specific Interep group with its members.
+**GET** - Returns the group members.
 
 ```bash title="Shell"
-curl https://kovan.interep.link/api/v1/groups/github/gold?members=true&limit=0&offset=0
+curl https://kovan.interep.link/api/v1/groups/github/gold/members?limit=0&offset=0
 ```
 
 ```json title="Response"
 {
-    "data": {
-        "provider": "github",
-        "name": "gold",
-        "depth": 20,
-        "root": "11783102006236284948621664772636974806012062508040430280186082981899335591789",
-        "numberOfLeaves": 2,
-        "size": 2,
-        "members": [
-            "6014393454173820032764441533619576647480292883965697181546606218195926726207",
-            "21605618534090961454558107749130073320045509650908077266704421832011347336358"
-        ]
-    }
+    "data": [
+        "6014393454173820032764441533619576647480292883965697181546606218195926726207",
+        "21605618534090961454558107749130073320045509650908077266704421832011347336358"
+    ]
 }
 ```
 
@@ -156,17 +148,6 @@ curl https://kovan.interep.link/api/v1/groups/github/gold/5389624958916554855745
 
 ```bash title="Shell"
 curl -X POST -H "Authorization: token OAUTH-TOKEN" \
-https://kovan.interep.link/api/v1/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554
-```
-
-```json title="Response"
-{ "data": true }
-```
-
-**DELETE** - Removes a member from a group and return true (for OAuth groups only). Your domain must be whitelisted to use this API.
-
-```bash title="Shell"
-curl -X DELETE -H "Authorization: token OAUTH-TOKEN" \
 https://kovan.interep.link/api/v1/groups/github/gold/5389624958916554855745402699919973897274778066321592214684792070525465486554
 ```
 
