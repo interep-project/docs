@@ -2,14 +2,14 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
     title: "Interep",
+    tagline: "Anti-sybil, as a service",
     url: "https://docs.interep.link",
     baseUrl: "/",
     favicon: "/img/favicon.ico",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
-    organizationName: "interep-project",
+    organizationName: "interep",
     projectName: "docs",
-    trailingSlash: false,
 
     presets: [
         [
@@ -36,7 +36,10 @@ module.exports = {
                 additionalLanguages: ["solidity"]
             },
             navbar: {
-                title: "Interep",
+                logo: {
+                    alt: "Interep icon",
+                    src: "img/logo.svg"
+                },
                 items: [
                     {
                         label: "GitHub",
@@ -106,15 +109,7 @@ module.exports = {
                 defaultMode: "dark",
                 // Should we use the prefers-color-scheme media-query,
                 // using user system preferences, instead of the hardcoded defaultMode
-                respectPrefersColorScheme: true,
-                // Dark/light switch icon options
-                switchConfig: {
-                    // Icon for the switch while in dark mode
-                    darkIcon: "\u{263D}",
-                    // Unicode icons such as '\u2600' will work
-                    // Unicode with 5 chars require brackets: '\u{1F602}'
-                    lightIcon: "\u{263C}"
-                }
+                respectPrefersColorScheme: true
             }
         })
 }
