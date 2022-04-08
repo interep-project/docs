@@ -41,7 +41,7 @@ A Merkle proof, or proof of membership, is the tree data needed to verify that a
 
 ## Providers
 
-Group types, as mentioned earlier, are defined by providers. Each provider has its own flow in the system and differs essentially in the ways in which it is verified that a user meets certain properties (e.g. social reputation, group membership or email ownership).
+Group types, as mentioned earlier, are defined by providers. Each provider has its own flow in the system and differs essentially in the ways in which it is verified that a user meets certain properties (e.g. social reputationor token ownership).
 
 The next paragraphs discuss in more detail the different providers currently supported by Interep.
 
