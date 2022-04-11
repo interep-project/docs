@@ -7,7 +7,7 @@ slug: /
 # What is Interep?
 
 :::caution
-This documentation refers to the latest version of Interep ([kovan.interep.link](https://kovan.interep.link)), which is still at an early stage.
+This documentation refers to the latest version of Interep, which is still at an early stage.
 :::
 
 ## Overview

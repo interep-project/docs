@@ -4,6 +4,10 @@ sidebar_position: 9
 
 # References
 
+- Website: https://interep.link
+- Staging app (Kovan): https://kovan.interep.link
+- Discord: https://discord.gg/Tp9He7qws4
+
 ## Github repositories
 
 -   Organization: https://github.com/interep-project
@@ -12,14 +16,6 @@ sidebar_position: 9
 -   Interep.JS: https://github.com/interep-project/interep.js
 -   Documentation: https://github.com/interep-project/docs
 -   Subgraph (The Graph): https://github.com/interep-project/subgraph
-
-## Application
-
--   Staging (Kovan): https://kovan.interep.link
-
-## Chat
-
--   Telegram: https://t.me/interrep
 
 ## Articles
 

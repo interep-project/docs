@@ -76,16 +76,12 @@ module.exports = {
                         title: "Community",
                         items: [
                             {
-                                label: "Medium",
-                                href: "https://medium.com/privacy-scaling-explorations"
+                                label: "Github",
+                                href: "https://github.com/interep-project"
                             },
                             {
-                                label: "Twitter",
-                                href: "https://twitter.com/PrivacyScaling"
-                            },
-                            {
-                                label: "Telegram",
-                                href: "https://t.me/interrep"
+                                label: "Discord",
+                                href: "https://discord.gg/Tp9He7qws4"
                             }
                         ]
                     },
@@ -93,8 +89,8 @@ module.exports = {
                         title: "More",
                         items: [
                             {
-                                label: "Interep App",
-                                href: "https://kovan.interep.link"
+                                label: "Interep",
+                                href: "https://interep.link"
                             },
                             {
                                 label: "Semaphore",
