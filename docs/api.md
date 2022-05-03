@@ -7,7 +7,11 @@ sidebar_position: 5
 Interep provides HTTP endpoints to interact with the reputation service and HTTP/WS endpoints to access onchain data with a subgraph.
 
 :::tip
-If you want to use the Interep APIs with a JavaScript library you can also use [`@interep/api`](https://github.com/Interep-project/interep.js/tree/main/packages/api).
+If you want to use the reputation service APIs with a JavaScript library you can also use [`@interep/api`](https://github.com/Interep-project/interep.js/tree/main/packages/api).
+:::
+
+:::info
+Interep APIs are currently available for the following Ethereum networks: `kovan`, `goerli`.
 :::
 
 ## Reputation service
@@ -62,6 +66,7 @@ curl https://kovan.interep.link/api/v1/groups
             "name": "gold",
             "depth": 20,
             "root": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
+            "onchainRoot": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
             "numberOfLeaves": 0,
             "size": 0
         },
@@ -70,6 +75,7 @@ curl https://kovan.interep.link/api/v1/groups
             "name": "devcon5",
             "depth": 20,
             "root": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
+            "onchainRoot": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
             "numberOfLeaves": 0,
             "size": 0
         },
@@ -78,6 +84,7 @@ curl https://kovan.interep.link/api/v1/groups
             "name": "-1001396261340",
             "depth": 20,
             "root": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
+            "onchainRoot": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
             "numberOfLeaves": 0,
             "size": 0
         },
@@ -86,6 +93,7 @@ curl https://kovan.interep.link/api/v1/groups
             "name": "hotmail",
             "depth": 20,
             "root": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
+            "onchainRoot": "19217088683336594659449020493828377907203207941212636669271704950158751593251",
             "numberOfLeaves": 0,
             "size": 0
         },
@@ -109,6 +117,7 @@ curl https://kovan.interep.link/api/v1/groups/github/gold
         "name": "gold",
         "depth": 20,
         "root": "3539596833905557328479676245499052267688962849195984401151716846778908697643",
+        "onchainRoot": "3539596833905557328479676245499052267688962849195984401151716846778908697643",
         "numberOfLeaves": 1,
         "size": 1
     }
@@ -292,88 +301,29 @@ The Graph is an indexing protocol for querying networks like Ethereum and IPFS. 
 Our [Interep subgraph](https://thegraph.com/hosted-service/subgraph/interep-project/interep-groups-kovan) allow you to get data from the [Interep smart contract](https://github.com/interep-group/contracts).
 
 :::tip
-If you don't know GraphQL, you can try running some queries using the Graph Explorer and its [GraphQL playground](https://thegraph.com/hosted-service/subgraph/interep-project/interep-groups-kovan?selected=playground). You can find some examples [here](https://thegraph.com/docs/developer/graphql-api).
+If you don't know GraphQL, you can try running some queries using the Graph Explorer and its [GraphQL playground](https://thegraph.com/hosted-service/subgraph/interep-project/interep-groups-kovan?selected=playground) (Kovan). You can find some examples [here](https://thegraph.com/docs/developer/graphql-api).
 :::
 
 ### Endpoints
 
+#### Kovan
+
 -   **Queries** (HTTP): https://api.thegraph.com/subgraphs/name/interep-project/interep-groups-kovan
 -   **Subscriptions** (WS): wss://api.thegraph.com/subgraphs/name/interep-project/interep-groups-kovan
+
+#### Goerli
+
+-   **Queries** (HTTP): https://api.thegraph.com/subgraphs/name/interep-project/interep-groups-goerli
+-   **Subscriptions** (WS): wss://api.thegraph.com/subgraphs/name/interep-project/interep-groups-goerli
 
 ### Schema
 
 ### Entities
 
-##### OnchainGroup
+##### Group
 
--   `id`: unique identifier among all onchain group entities,
--   `depth`: depth of the Merkle tree used for the group,
--   `root`: last root hash of the Merkle tree,
--   `size`: number of active members (or non-zero tree leaves),
--   `numberOfLeaves`: total number of tree leaves,
--   `admin`: admin of the group,
--   `members`: list of members of the group.
-
-##### Member
-
--   `id`: unique identifier among all member entities,
--   `identityCommitment`: Semaphore identity commitment,
--   `index`: index of the tree leaf,
--   `group`: link to the onchain group entity.
-
-##### OffchainGroup
-
--   `id`: unique identifier among all offchain group entities,
--   `depth`: depth of the merkle tree used for the group,
--   `root`: root hash of the tree used for the group,
-
-### Example Queries
-
-#### All members for the first 10 onchain groups
-
-```graphql
-{
-    onchainGroups(first: 10) {
-        id
-        depth
-        admin
-        members {
-            identityCommitment
-            index
-        }
-    }
-}
-```
-
-#### Sample of onchain members
-
-```graphql
-{
-    members(first: 5) {
-        identityCommitment
-        root
-        index
-        group {
-            id
-        }
-    }
-}
-```
-
-#### Onchain groups by identity commitment
-
-It can be useful when you want all groups of a certain provider to which a user belongs.
-
-```graphql
-{
-    members(
-        where: { identityCommitment: "2066509069781532083082870363092240900543210735798842041673598797369005529920" }
-    ) {
-        onchainGroups {
-            id
-            depth
-            size
-        }
-    }
-}
-```
+-   `id`: unique identifier among all group entities,
+-   `provider`: Interep group provider (e.g. `twitter`),
+-   `name`: Interep group name (e.g. `gold`),
+-   `depth`: Merkle tree depth,
+-   `root`: Merkle tree root hash.

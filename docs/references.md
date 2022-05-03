@@ -6,6 +6,7 @@ sidebar_position: 9
 
 - Website: https://interep.link
 - Staging app (Kovan): https://kovan.interep.link
+- Staging app (Goerli): https://goerli.interep.link
 - Discord: https://discord.gg/Tp9He7qws4
 
 ## Github repositories
