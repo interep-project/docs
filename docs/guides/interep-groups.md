@@ -1,13 +1,12 @@
 ---
 sidebar_position: 1
-title: Offchain groups
 ---
 
-# Using offchain groups
+# Interep groups
 
-In this section, we will learn how to integrate the Interep offchain groups in your application.
+In this section, we will learn how to integrate the Interep groups in your application.
 
-Interep allows users to join offchain groups based on certain parameters. Each offchain group has a provider and a name, and it can be used by users to anonymously perform tasks that require them to prove, for example, that they have a certain reputation on Twitter or that they belong to a certain Telegram group.
+Interep allows users to join groups based on certain parameters. Each group has a provider and a name, and it can be used by users to anonymously perform tasks that require them to prove, for example, that they have a certain reputation on Twitter.
 
 :::caution
 Before going any further, if you are not familiar with Semaphore, read the [official documentation](https://semaphore.appliedzkp.org).
@@ -18,7 +17,7 @@ Before going any further, if you are not familiar with Semaphore, read the [offi
 If you want to allow a user to join a OAuth provider group (i.e. Twitter, Github or Reddit) directly from your app without going through the Interep app, you will need to create a OAuth authentication system to generate a valid access token in order to calculate the users' reputation and to add their identity commitment to an Interep group.
 
 :::caution
-For Web3 providers (i.e POAP) you can skip the first two steps. As we will see later, it is sufficient to sign the identity commitment with Metamask and send the signature and the address of the Ethereum account used to sign. The flow of the Email and Telegram providers cannot currently be onboarded.
+ With POAP you can skip the first two steps. As we will see later, it is sufficient to sign the identity commitment with Metamask and send the signature and the address of the Ethereum account used to sign. The flow of the Email and Telegram providers cannot currently be onboarded.
 :::
 
 ## User's reputation

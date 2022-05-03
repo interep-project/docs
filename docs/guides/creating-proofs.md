@@ -1,11 +1,10 @@
 ---
-sidebar_position: 3
-title: Semaphore proofs
+sidebar_position: 2
 ---
 
-# Creating Semaphore proofs
+# Semaphore proofs
 
-If you've read the guides on how to use onchain or offchain groups you may now be wondering how you can allow users to create Semaphore proofs, and how to verify that these proofs are valid.
+If you've read the guide on how to use the Interep groups you may now be wondering how you can allow users to create Semaphore proofs, and how to verify that these proofs are valid.
 
 In this section, we will learn how to get all the parameters for creating valid Semaphore proofs and how to use the Interep contract to correctly verify them.
 
@@ -35,8 +34,7 @@ import createIdentity from "@interep/identity"
 
 const sign = (message) => signer.signMessage(message)
 
-// The second parameter can be an offchain provider or an onchain group id.
-const identity = await createIdentity(sign, "<provider-or-group-id>")
+const identity = await createIdentity(sign, "Github") 
 ```
 
 :::caution
@@ -52,8 +50,7 @@ Creating Semaphore proofs also requires some zero-knowledge static files. In the
 ```typescript
 import createProof from "@interep/proof"
 
-const groupId = BigInt(formatBytes32String("<group-id>"))
-// const groupId = { provider: "<group-provider>", name: "<group-name>" } for offchain groups.
+const group = { provider: "Github", name: "gold" }
 
 const externalNullifier = 1
 const signal = "Hello World"
@@ -63,7 +60,7 @@ const zkFiles = {
     zkeyFilePath: "./semaphore_final.zkey"
 }
 
-const { publicSignals, solidityProof } = await createProof(identity, groupId, externalNullifier, signal, zkFiles)
+const { publicSignals, solidityProof } = await createProof(identity, group, externalNullifier, signal, zkFiles)
 ```
 
 ## Onchain verification
