@@ -2,7 +2,7 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
     title: "Interep",
-    tagline: "Anti-sybil, as a service",
+    tagline: "Anti-sybil as a service",
     url: "https://docs.interep.link",
     baseUrl: "/",
     favicon: "/img/favicon.ico",
@@ -22,8 +22,7 @@ module.exports = {
                     routeBasePath: "/"
                 },
                 theme: {
-                    customCss: require.resolve("./src/css/custom.css"),
-                    customCss2: require.resolve("./src/css/colors.css")
+                    customCss: require.resolve("./src/css/custom.css")
                 }
             })
         ]
