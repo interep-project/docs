@@ -2,7 +2,7 @@
 sidebar_position: 9
 ---
 
-# References
+# Resources
 
 - Website: https://interep.link
 - Staging app (Kovan): https://kovan.interep.link

@@ -66,8 +66,8 @@ module.exports = {
                                 to: "/api"
                             },
                             {
-                                label: "References",
-                                to: "/references"
+                                label: "Resources",
+                                to: "/resources"
                             }
                         ]
                     },
