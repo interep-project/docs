@@ -34,7 +34,7 @@ import createIdentity from "@interep/identity"
 
 const sign = (message) => signer.signMessage(message)
 
-const identity = await createIdentity(sign, "Github") 
+const identity = await createIdentity(sign, "Github")
 ```
 
 :::caution
@@ -50,17 +50,17 @@ Creating Semaphore proofs also requires some zero-knowledge static files. In the
 ```typescript
 import createProof from "@interep/proof"
 
-const group = { provider: "Github", name: "gold" }
-
+const groupProvider = "github"
+const groupName = "gold"
 const externalNullifier = 1
 const signal = "Hello World"
 
-const zkFiles = {
+const snarkArtifacts = {
     wasmFilePath: "./semaphore.wasm",
-    zkeyFilePath: "./semaphore_final.zkey"
+    zkeyFilePath: "./semaphore.zkey"
 }
 
-const { publicSignals, solidityProof } = await createProof(identity, group, externalNullifier, signal, zkFiles)
+const { publicSignals, solidityProof } = await createProof(identity, groupProvider, groupName, externalNullifier, signal, snarkArtifacts)
 ```
 
 ## Onchain verification
